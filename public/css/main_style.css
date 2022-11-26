@@ -1,0 +1,151 @@
+.menu {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/*************** Home Page ***************/
+
+/*.textBlock span {*/
+/*    text-decoration: underline;*/
+/*    !*font-family: highlight;*!*/
+/*    font-size: inherit;*/
+/*}*/
+.mainBackground {
+    height: 100vh;
+    width: 100%;
+    object-fit: fill;
+}
+
+.nav-text {
+    font-size: 30px;
+}
+
+.logo-title1 {
+    width: 100px;
+    height: 100px;
+    /*align-content: center;*/
+    float: left;
+}
+
+.textBlock h2 {
+    /*font-family: secondary;*/
+    text-align: right;
+    text-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    font-size: inherit;
+}
+
+.textBlock {
+    color: #cbe065;
+    min-width: 400px;
+    display: flex;
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    font-size: 5em;
+}
+
+.logo-title2 {
+    width: 100px;
+    height: 100px;
+    /*align-content: center;*/
+    float: left;
+}
+
+.textBlock h3 {
+    /*font-family: secondary;*/
+    text-align: right;
+    text-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    font-size: inherit;
+}
+
+.textBlock2 {
+    color: #cbe065;
+    min-width: 400px;
+    display: flex;
+    position: absolute;
+    top: 35vh;
+    left: 5vw;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    font-size: 5em;
+}
+
+@import "https://fonts.googleapis.com/css?family=Russo+One";
+h1.funny-title{
+    border-top:5px solid #E0DBDE;
+    border-bottom:5px solid #E0DBDE;
+    text-align:center;
+    margin-top:40px;
+    margin-bottom:5px;
+    text-transform:uppercase;
+    font-family:'Russo One',sans-serif;
+    font-weight:900;
+    letter-spacing:8px;
+    padding: 30px 0 30px 0;
+    font-size: 5em;
+}
+@-webkit-keyframes move-background {
+    0%{background-position:-300px 0}
+    100%{background-position:300px -300px}
+}
+@-moz-keyframes move-background {
+    0%{background-position:-300px 0}
+    100%{background-position:300px -300px}
+}
+@keyframes move-background {
+    0%{background-position:-300px 0}
+    100%{background-position:300px -300px}
+}
+.section-title{-webkit-animation-play-state:running;
+    -moz-animation-play-state:running;
+    animation-play-state:running;
+    color:transparent;
+    background:url("../images/background.JPG") no-repeat #ECE7EA;
+    background-size:cover;
+    -webkit-text-fill-color:transparent;
+    -moz-text-fill-color:transparent;
+    -webkit-background-clip:text;
+    -moz-background-clip:text;
+    background-clip:text;
+    -webkit-animation:move-background 20s infinite linear alternate;
+    -moz-animation:move-background 20s infinite linear alternate;
+    animation:move-background 20s infinite linear alternate;
+    text-transform: uppercase;
+}
+.logos{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    width: 700px;
+    height: 40px;
+}
+.logo{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    padding: 0 20px 0 20px;
+}
+.select_lang{
+    background-color: transparent;
+    border: 0;
+}
+.select_lang option{
+    color:black;
+}
+
+/*************** Team ***************/
+.team{
+    min-height: 500px;
+    padding: 30px;
+}
+.team__image-block{
+    min-height: 100%;
+    /*align-content: center;*/
+    float: left;
+    margin-right: 30px;
+}
+.team__text-block{
+    margin-left: 30px;
+}

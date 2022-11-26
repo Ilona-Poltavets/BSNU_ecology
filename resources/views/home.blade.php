@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }}</title>
-    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('css/main_style.css')}}">
 
     <!-- Font Awesome 6.1.0 Iconic Font -->
     <link rel="stylesheet" href="{{url('css/fontawesome/css/fontawesome.css')}}"/>
@@ -40,13 +40,13 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="nav navbar-nav nav-text">
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="#">@lang("messages.Home")</a>
+                    <a class="nav-link" href="{{route("home")}}">@lang("messages.Home")</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="{{route("about")}}">@lang("messages.About")</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="#">@lang("messages.Our Team")</a>
+                    <a class="nav-link" href="{{route("home")}}#team">@lang("messages.Our Team")</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="#">@lang("messages.News")</a>
@@ -56,6 +56,19 @@
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="#">@lang("messages.Resources")</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-2 lang">
+                    <select name="setLocale" class="select_lang nav-link" onchange="window.location.href=this.options[this.selectedIndex].value;">
+                        <option value="{{route('setlocale', ['lang' => 'en'])}}" {{(App::isLocale('en') ? 'selected' : '')}}>
+                            English
+                        </option>
+                        <option value="{{route('setlocale', ['lang' => 'uk'])}}" {{(App::isLocale('uk') ? 'selected' : '')}}>
+                            Українська
+                        </option>
+                    </select>
                 </li>
             </ul>
         </div>
@@ -118,19 +131,18 @@
     </div>
     <img src="{{asset('images/background.jpg')}}" alt="background" class="mainBackground"/>
 </div>
-<h1 class="funny-title section-title">@lang("messages.Our Team")</h1>
-<div>
-
+<h1 class="funny-title section-title" id="team">@lang("messages.Our Team")</h1>
+<div class="team">
+    <div class="team__image-block">
+        <img class="team__image" src="{{asset('images/1.jpg')}}" alt="">
+    </div>
+    <div class="team__text-block">
+        <h2>Олена Мітрясова</h2>
+        <h5>професорка кафедри екології ЧНУ імені Петра Могили</h5>
+        <p>Україна, координаторка</p>
+    </div>
 </div>
 <div class="footer">
-    <select name="setLocale" class="form-select" onchange="window.location.href=this.options[this.selectedIndex].value;">
-        <option value="{{route('setlocale', ['lang' => 'en'])}}" {{(App::isLocale('en') ? 'selected' : '')}}>
-            English
-        </option>
-        <option value="{{route('setlocale', ['lang' => 'uk'])}}" {{(App::isLocale('uk') ? 'selected' : '')}}>
-            Українська
-        </option>
-    </select>
     <div class="logos">
         <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
