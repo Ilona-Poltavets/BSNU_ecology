@@ -1,7 +1,6 @@
 .menu {
     background-color: rgba(0, 0, 0, 0.3);
 }
-
 /*************** Home Page ***************/
 
 /*.textBlock span {*/
@@ -83,7 +82,7 @@ h1.funny-title{
     font-weight:900;
     letter-spacing:8px;
     padding: 30px 0 30px 0;
-    font-size: 5em;
+    font-size: 4em;
 }
 @-webkit-keyframes move-background {
     0%{background-position:-300px 0}
@@ -114,17 +113,15 @@ h1.funny-title{
     text-transform: uppercase;
 }
 .logos{
-    display: flex;
     justify-content: space-between;
-    flex-wrap: nowrap;
-    box-sizing: border-box;
-    width: 700px;
-    height: 40px;
+    display: inline-block;
+    /*box-sizing: border-box;*/
+    /*width: 700px;*/
 }
 .logo{
-    box-sizing: border-box;
-    width: 100%;
-    height: 100px;
+    float: left;
+    width: auto;
+    height: 80px;
     padding: 0 20px 0 20px;
 }
 .select_lang{
@@ -134,18 +131,52 @@ h1.funny-title{
 .select_lang option{
     color:black;
 }
-
-/*************** Team ***************/
-.team{
-    min-height: 500px;
-    padding: 30px;
+.header-title{
+    font-size:3em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
 }
-.team__image-block{
-    min-height: 100%;
-    /*align-content: center;*/
+.socials{
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 630px;
+}
+.social a {
+    text-align: center;
+    width: 48px;
+    height: 48px;
     float: left;
-    margin-right: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
+    border-radius: 24px;
+    margin: 0 30px 30px 0;
+    padding: 6px;
+    color: #000;
 }
-.team__text-block{
-    margin-left: 30px;
+
+.youtube a:hover {background: #c4302b; color: #fff;}
+.google-plus a:hover {background: #DD4B39; color: #fff;}
+.twitter a:hover {background: #00acee; color: #fff;}
+.instagram a:hover {background: #3f729b; color: #fff;}
+.facebook a:hover {background: #3b5998; color: #fff;}
+.pinterest a:hover {background: #c8232c; color: #fff;}
+.linkedin a:hover {background: #0e76a8; color: #fff;}
+.telegram a:hover {background: #249bd7; color: #fff;}
+.whatsapp a:hover {background: #50b154; color: #fff;}
+
+.footer{
+    display: block;
+}
+
+.list li {
+    list-style-type: none;
+}
+
+.list {
+    margin-left: 0;
+    padding-left: 0;
 }

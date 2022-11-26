@@ -81,7 +81,10 @@ class TeamController extends Controller
 
         return redirect()->route('team.index')->with('success', 'Team member has been edited successfully');
     }
-    public function destroy(){
-
+    public function destroy($id){
+        $member=Team::find($id);
+        Storage::delete($member->image);
+        $member->delete();
+        return redirect()->route('team.index')->with('success', 'Game has been deleted successfully');
     }
 }
