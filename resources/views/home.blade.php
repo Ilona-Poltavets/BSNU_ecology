@@ -190,8 +190,10 @@
                 </div>
                 <div class="col">
                     <b>@lang("messages.footer_last_news")</b>
-                    <ul class="list">
-
+                    <ul class="">
+                        @foreach($news as $post)
+                            <li><a style="text-decoration: none;color:black" href="{{route("news.show",$post->id)}}">{{App::isLocale("uk")?$post->titleUkr:$post->titleEng}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col">

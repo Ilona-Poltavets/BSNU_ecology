@@ -18,5 +18,8 @@
                 </div>
             </a>
         @endforeach
+        <div style="clear: left">
+            {{$news->links()}}
+        </div>
     </div>
 @endsection

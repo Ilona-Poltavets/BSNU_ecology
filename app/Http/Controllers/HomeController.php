@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data['news']=News::orderby('created_at',"desc")->take(5)->get();
         $data['team']=Team::all();
         return view('home',$data);
     }

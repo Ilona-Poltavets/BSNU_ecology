@@ -243,6 +243,10 @@ h1.funny-title {
 .list li {
     list-style-type: none;
 }
+.list li a:hover{
+    color: black;
+}
+
 
 .list {
     margin-left: 0;
@@ -250,4 +254,3 @@ h1.funny-title {
 }
 
 /*************** END Footer ***************/
-

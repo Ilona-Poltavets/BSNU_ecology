@@ -21,13 +21,13 @@ class NewsController extends Controller
 
     public function index()
     {
-        $data['news'] = News::paginate(10);
+        $data['news'] = News::orderBy('created_at', 'DESC')->paginate(10);
         return view('news.index', $data);
     }
 
     public function viewAll()
     {
-        $data['news'] = News::paginate(10);
+        $data['news'] = News::orderBy('created_at', 'DESC')->paginate(9);
         return view('news', $data);
     }
 
