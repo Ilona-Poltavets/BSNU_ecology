@@ -176,13 +176,13 @@ img {
     height: 100%;
 }
 
-.card__header{
+.card__header {
     height: 300px;
 }
 
 .card {
     display: flex;
-    float:left;
+    float: left;
     flex-direction: column;
     max-width: 400px;
     height: 500px;
@@ -194,6 +194,7 @@ img {
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
     margin: 30px 10px;
 }
+
 .card__body {
     padding: 1rem;
     display: flex;
@@ -204,14 +205,21 @@ img {
 .card__body h4 {
     font-size: 1.5rem;
     text-transform: capitalize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-align: justify;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
-a:hover{
+a:hover {
     color: black;
 }
 
@@ -220,7 +228,8 @@ a:hover{
     padding: 1rem;
     margin-top: auto;
 }
-.date{
+
+.date {
     height: 10px;
     color: lightgrey;
     text-align: center;

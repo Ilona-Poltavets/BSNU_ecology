@@ -99,9 +99,9 @@ class NewsController extends Controller
 
     function save($post, $request)
     {
-        $rootPath = 'images/No_photo.png';
+        $rootPath = ($post->title_image==null || $post->title_image=="") ?'images/No_photo.png':$post->title_image;
         if ($request->file('title_image') != null) {
-            if(isset($post) && $post->title_image!='images/No_photo.png'){
+            if($post->title_image!='images/No_photo.png'){
                 Storage::delete($rootPath);
             }
             $rootPath = ($request->title_image)->store("storage/news");
