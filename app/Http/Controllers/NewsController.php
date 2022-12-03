@@ -25,6 +25,12 @@ class NewsController extends Controller
         return view('news.index', $data);
     }
 
+    public function viewAll()
+    {
+        $data['news'] = News::paginate(10);
+        return view('news', $data);
+    }
+
     public function show($id)
     {
         $post = News::find($id);

@@ -35,6 +35,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('all_news',"App\Http\Controllers\NewsController@viewAll")->name('all_news');
 
 /*
 |--------------------------------------------------------------------------

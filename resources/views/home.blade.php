@@ -67,7 +67,7 @@
                     <a class="nav-link" href="{{route("home")}}#team">@lang("messages.Our Team")</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="#">@lang("messages.News")</a>
+                    <a class="nav-link" href="{{route('all_news')}}">@lang("messages.News")</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="#">@lang("messages.Gallery")</a>
