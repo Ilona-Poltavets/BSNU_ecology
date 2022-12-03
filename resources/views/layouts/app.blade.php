@@ -26,10 +26,18 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('css/loader.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
 </head>
-<body>
-<div id="">
+<body onload="myFunction()">
+<div id="loader" class="body">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div style="display:none;" id="myDiv">
     <div class="logos">
         <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
@@ -91,5 +99,19 @@
     </div>
 
 </div>
+
+<script>
+    var myVar;
+
+    function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("myDiv").style.display = "block";
+    }
+</script>
+
 </body>
 </html>
