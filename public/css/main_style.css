@@ -1,21 +1,28 @@
+/*************** Nav bar ***************/
 .menu {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-/*************** Home Page ***************/
-
-/*.textBlock span {*/
-/*    text-decoration: underline;*/
-/*    !*font-family: highlight;*!*/
-/*    font-size: inherit;*/
-/*}*/
-.mainBackground {
-    height: 100vh;
+    background-color: transparent; /*rgba(0, 0, 0, 0.3);*/
     width: 100%;
-    object-fit: fill;
+    /*color:rgba(0,0,0,0.5);*/
+}
+
+.select_lang {
+    background-color: transparent;
+    border: 0;
+}
+
+.select_lang option {
+    color: black;
 }
 
 .nav-text {
     font-size: 30px;
+}
+/*************** END Nav bar ***************/
+/*************** Home Page ***************/
+.mainBackground {
+    height: 100vh;
+    width: 100%;
+    object-fit: fill;
 }
 
 .logo-title1 {
@@ -69,81 +76,105 @@
     z-index: 1000;
     font-size: 5em;
 }
-
+/*************** END Home Page ***************/
+/*************** Title ***************/
 @import "https://fonts.googleapis.com/css?family=Russo+One";
-h1.funny-title{
-    border-top:5px solid #E0DBDE;
-    border-bottom:5px solid #E0DBDE;
-    text-align:center;
-    margin-top:40px;
-    margin-bottom:5px;
-    text-transform:uppercase;
-    font-family:'Russo One',sans-serif;
-    font-weight:900;
-    letter-spacing:8px;
+h1.funny-title {
+    border-top: 5px solid #E0DBDE;
+    border-bottom: 5px solid #E0DBDE;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 900;
+    letter-spacing: 8px;
     padding: 30px 0 30px 0;
     font-size: 4em;
 }
+
 @-webkit-keyframes move-background {
-    0%{background-position:-300px 0}
-    100%{background-position:300px -300px}
+    0% {
+        background-position: -300px 0
+    }
+    100% {
+        background-position: 300px -300px
+    }
 }
+
 @-moz-keyframes move-background {
-    0%{background-position:-300px 0}
-    100%{background-position:300px -300px}
+    0% {
+        background-position: -300px 0
+    }
+    100% {
+        background-position: 300px -300px
+    }
 }
+
 @keyframes move-background {
-    0%{background-position:-300px 0}
-    100%{background-position:300px -300px}
+    0% {
+        background-position: -300px 0
+    }
+    100% {
+        background-position: 300px -300px
+    }
 }
-.section-title{-webkit-animation-play-state:running;
-    -moz-animation-play-state:running;
-    animation-play-state:running;
-    color:transparent;
-    background:url("../images/background.JPG") no-repeat #ECE7EA;
-    background-size:cover;
-    -webkit-text-fill-color:transparent;
-    -moz-text-fill-color:transparent;
-    -webkit-background-clip:text;
-    -moz-background-clip:text;
-    background-clip:text;
-    -webkit-animation:move-background 20s infinite linear alternate;
-    -moz-animation:move-background 20s infinite linear alternate;
-    animation:move-background 20s infinite linear alternate;
+
+.section-title {
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    animation-play-state: running;
+    color: transparent;
+    background: url("../images/background.JPG") no-repeat #ECE7EA;
+    background-size: cover;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-animation: move-background 20s infinite linear alternate;
+    -moz-animation: move-background 20s infinite linear alternate;
+    animation: move-background 20s infinite linear alternate;
     text-transform: uppercase;
 }
-.logos{
+
+/*************** END Title ***************/
+/*************** Logos ***************/
+.logos {
     justify-content: space-between;
-    display: inline-block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 80px;
     /*box-sizing: border-box;*/
     /*width: 700px;*/
 }
-.logo{
-    float: left;
+
+.logo {
+    display: inline-block;
+    /*float: left;*/
+    height: inherit;
     width: auto;
-    height: 80px;
     padding: 0 20px 0 20px;
 }
-.select_lang{
-    background-color: transparent;
-    border: 0;
-}
-.select_lang option{
-    color:black;
-}
-.header-title{
-    font-size:3em;
+
+/*************** END Logos ***************/
+/*************** Socials ***************/
+.header-title {
+    font-size: 3em;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
 }
-.socials{
+
+.socials {
     align-items: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
     max-width: 630px;
 }
+
 .social a {
     text-align: center;
     width: 48px;
@@ -151,24 +182,61 @@ h1.funny-title{
     float: left;
     background: #fff;
     border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 0 50px rgba(0, 0, 0, 0.1);
     border-radius: 24px;
     margin: 0 30px 30px 0;
     padding: 6px;
     color: #000;
 }
 
-.youtube a:hover {background: #c4302b; color: #fff;}
-.google-plus a:hover {background: #DD4B39; color: #fff;}
-.twitter a:hover {background: #00acee; color: #fff;}
-.instagram a:hover {background: #3f729b; color: #fff;}
-.facebook a:hover {background: #3b5998; color: #fff;}
-.pinterest a:hover {background: #c8232c; color: #fff;}
-.linkedin a:hover {background: #0e76a8; color: #fff;}
-.telegram a:hover {background: #249bd7; color: #fff;}
-.whatsapp a:hover {background: #50b154; color: #fff;}
+.youtube a:hover {
+    background: #c4302b;
+    color: #fff;
+}
 
-.footer{
+.google-plus a:hover {
+    background: #DD4B39;
+    color: #fff;
+}
+
+.twitter a:hover {
+    background: #00acee;
+    color: #fff;
+}
+
+.instagram a:hover {
+    background: #3f729b;
+    color: #fff;
+}
+
+.facebook a:hover {
+    background: #3b5998;
+    color: #fff;
+}
+
+.pinterest a:hover {
+    background: #c8232c;
+    color: #fff;
+}
+
+.linkedin a:hover {
+    background: #0e76a8;
+    color: #fff;
+}
+
+.telegram a:hover {
+    background: #249bd7;
+    color: #fff;
+}
+
+.whatsapp a:hover {
+    background: #50b154;
+    color: #fff;
+}
+
+/*************** END Socials ***************/
+/*************** Footer ***************/
+.footer {
     display: block;
 }
 
@@ -180,3 +248,5 @@ h1.funny-title{
     margin-left: 0;
     padding-left: 0;
 }
+
+/*************** END Footer ***************/

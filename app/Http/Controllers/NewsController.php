@@ -2,29 +2,110 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
+use App\Models\News;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
-    public function index(){
+    const VALIDATION_RULE = [
+        'titleUkr' => 'required|',
+        'titleEng' => 'required|',
+        'contentUkr' => 'required|',
+        'contentEng' => 'required|',
+    ];
 
+    public function index()
+    {
+        $data['news'] = News::paginate(10);
+        return view('news.index', $data);
     }
-    public function show(){
 
+    public function show($id)
+    {
+        $post = News::find($id);
+        return view('news.show', compact('post'));
     }
-    public function create(){
 
+    public function create()
+    {
+        return view('news.create');
     }
-    public function store(){
 
+    public function store(Request $request)
+    {
+        $post = new News();
+        $this->validateData($request);
+        $this->save($post, $request);
+
+        return redirect()->route('news.index');
     }
-    public function edit(){
 
+    public function edit($id)
+    {
+        $post = News::find($id);
+        return view('news.edit', compact('post'));
     }
-    public function update(){
 
+    public function update(Request $request, $id)
+    {
+        $post = News::find($id);
+        $this->validateData($request);
+        $this->save($post, $request);
+
+        return redirect()->route('news.index');
     }
-    public function delete(){
 
+    public function destroy($id)
+    {
+        $post = News::find($id);
+        $post->delete();
+        return redirect()->route('news.index');
+    }
+
+    public function upload(Request $request)
+    {
+        //return response()->json_encode($request);
+        //$filename=$request->file->getClientOriginalName();
+        //$path=($request->file)->storeAs("storage/uploads",$filename);
+
+        $image = new Gallery();
+        $path = ($request->file)->store("storage/uploads");
+        $image->path = $path;
+        $image->save();
+
+        return response()->json(array('location' => $path));
+    }
+
+    function validateData($request)
+    {
+        $validator = Validator::make($request->all(), self::VALIDATION_RULE);
+        if ($validator->fails()) {
+            return redirect('news/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+    }
+
+    function save($post, $request)
+    {
+        $rootPath = 'images/No_photo.png';
+        if ($request->file('title_image') != null) {
+            if(isset($post) && $post->title_image!='images/No_photo.png'){
+                Storage::delete($rootPath);
+            }
+            $rootPath = ($request->title_image)->store("storage/news");
+        }
+
+        $post->title_image=$rootPath;
+        $post->titleUkr = $request->titleUkr;
+        $post->titleEng = $request->titleEng;
+        $post->contentUkr = $request->contentUkr;
+        $post->contentEng = $request->contentEng;
+        $post->save();
     }
 }

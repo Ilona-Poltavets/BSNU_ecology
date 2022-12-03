@@ -19,102 +19,77 @@
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
             crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark menu shadow-sm">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse"></div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="{{route("home")}}">@lang("messages.Home")</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="{{route("about")}}">@lang("messages.About")</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="{{route("home")}}#team">@lang("messages.Our Team")</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">@lang("messages.News")</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">@lang("messages.Gallery")</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">@lang("messages.Resources")</a>
-                        </li>
-                    </ul>
+<div id="">
+    <div class="logos">
+        <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
+        <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse"></div>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="nav navbar-nav nav-text">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="{{route("home")}}">@lang("messages.Home")</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="{{route("about")}}">@lang("messages.About")</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="{{route("home")}}#team">@lang("messages.Our Team")</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#">@lang("messages.News")</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#">@lang("messages.Gallery")</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#">@lang("messages.Resources")</a>
+                    </li>
+                </ul>
 
-{{--                    <!-- Right Side Of Navbar -->--}}
-{{--                    <ul class="navbar-nav ms-auto">--}}
-{{--                        <!-- Authentication Links -->--}}
-{{--                        @guest--}}
-{{--                            @if (Route::has('login'))--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-
-{{--                            @if (Route::has('register'))--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-{{--                        @else--}}
-{{--                            <li class="nav-item dropdown">--}}
-{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                                    {{ Auth::user()->name }}--}}
-{{--                                </a>--}}
-
-{{--                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">--}}
-{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                                       onclick="event.preventDefault();--}}
-{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                                        {{ __('Logout') }}--}}
-{{--                                    </a>--}}
-
-{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                                        @csrf--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        @endguest--}}
-{{--                    </ul>--}}
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-
-        <div class="footer">
-            <select name="setLocale" class="form-select" onchange="window.location.href=this.options[this.selectedIndex].value;">
-                <option value="{{route('setlocale', ['lang' => 'en'])}}" {{(App::isLocale('en') ? 'selected' : '')}}>
-                    English
-                </option>
-                <option value="{{route('setlocale', ['lang' => 'uk'])}}" {{(App::isLocale('uk') ? 'selected' : '')}}>
-                    Українська
-                </option>
-            </select>
-            <div class="logos">
-                <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
-                <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
-                <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
-                <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
-                <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
-                <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2 lang">
+                        <select name="setLocale" class="select_lang nav-link"
+                                onchange="window.location.href=this.options[this.selectedIndex].value;">
+                            <option
+                                value="{{route('setlocale', ['lang' => 'en'])}}" {{(App::isLocale('en') ? 'selected' : '')}}>
+                                English
+                            </option>
+                            <option
+                                value="{{route('setlocale', ['lang' => 'uk'])}}" {{(App::isLocale('uk') ? 'selected' : '')}}>
+                                Українська
+                            </option>
+                        </select>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+
+    <div class="py-4 main">
+        @yield('content')
     </div>
+
+</div>
 </body>
 </html>

@@ -1,0 +1,14 @@
+/*************** Table ***************/
+.hide_text{
+    width: 200px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+textarea{
+    width:100%;
+}
+.title-image{
+    max-width: 300px;
+}

@@ -40,7 +40,15 @@
     <script type="text/javascript" src="{{url('js/script.js')}}"></script>
 </head>
 <body class="">
-<nav class="navbar navbar-expand-lg navbar-dark menu fixed-top">
+<div class="logos">
+    <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
+    <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
+    <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
+    <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
+    <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
+    <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -184,7 +192,7 @@
             <a href="#" target="_blank"><i class="fa-brands fa-twitter fa-2x"></i></a>
         </div>
         <div class="social instagram">
-            <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+            <a href="https://www.instagram.com/europeangreendimensions/" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
         </div>
         <div class="social facebook">
             <a href="#" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
@@ -233,14 +241,6 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="logos">
-        <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
-        <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
     </div>
 </div>
 </body>

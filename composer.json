@@ -11,7 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.1",
-        "mcamara/laravel-localization": "^1.7"
+        "tinymce/tinymce": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

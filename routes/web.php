@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,8 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->nam
 */
 
 Route::resource('team','App\Http\Controllers\TeamController');
+Route::resource('news','App\Http\Controllers\NewsController');
+Route::post('/upload', 'App\Http\Controllers\NewsController@upload');
 
 /*
 |--------------------------------------------------------------------------
