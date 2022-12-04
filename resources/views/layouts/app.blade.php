@@ -23,6 +23,9 @@
             integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- Fancypps -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -68,7 +71,7 @@
                         <a class="nav-link" href="{{route('all_news')}}">@lang("messages.News")</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">@lang("messages.Gallery")</a>
+                        <a class="nav-link" href="{{route('gallery')}}">@lang("messages.Gallery")</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="#">@lang("messages.Resources")</a>
@@ -112,6 +115,6 @@
         document.getElementById("myDiv").style.display = "block";
     }
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 </body>
 </html>

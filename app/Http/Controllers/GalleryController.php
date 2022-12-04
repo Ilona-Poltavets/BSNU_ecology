@@ -2,29 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
-    public function index(){
-
+    public function index()
+    {
+        $data['images'] = Gallery::paginate(20);
+        return view('gallery.index', $data);
     }
-    public function show(){
-
+//    public function show(){
+//        $data['images']=Gallery::paginate(9);
+//        return view('gallery',$data);
+//    }
+    public function getGallery()
+    {
+        $data['images'] = Gallery::orderBy('created_at', 'DESC')->paginate(16);
+        return view('gallery', $data);
     }
-    public function create(){
 
+    public function create()
+    {
+        return view('gallery.create');
     }
-    public function store(){
 
+    public function store(Request $request)
+    {
+        $this->saveData($request);
+        return redirect()->route('photos.index');
     }
-    public function edit(){
 
+    public function destroy($id)
+    {
+        $image = Gallery::find($id);
+        Storage::delete($image->path);
+        $image->delete();
+        return redirect()->route('photos.index');
     }
-    public function update(){
 
-    }
-    public function delete(){
-
+    function saveData($request)
+    {
+        foreach ($request->file('files') as $file) {
+            $path = $file->store('storage/uploads');
+            $image = new Gallery();
+            $image->path = $path;
+            $image->save();
+        }
     }
 }

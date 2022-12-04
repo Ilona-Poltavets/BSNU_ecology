@@ -49,6 +49,8 @@
         </tbody>
     </table>
 
+    {{$teamMembers->links()}}
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -58,7 +60,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <p class="col-form-label">Ви впевнені у видалені <b id="recipient-name"></b></p>
+                        <p class="col-form-label">Ви впевнені у видалені <b id="recipient-name"></b>?</p>
                     </div>
                 </div>
                 <div class="modal-footer">

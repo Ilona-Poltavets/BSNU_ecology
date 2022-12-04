@@ -1,51 +1,40 @@
 @extends('layouts.admin')
-@section('title','News')
+@section('title','Images')
 @section('content')
-    <a class="btn btn-success" href="{{route('news.create')}}">Додати новину</a>
+    <a href="{{route('photos.create')}}" class="btn btn-success">Додати зображення</a>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>#</th>
-            <th>Фото</th>
-            <th>Заголовок українською</th>
-            <th>Заголовок англійською</th>
-{{--            <th>Контент українською</th>--}}
-{{--            <th>Контент англійською</th>--}}
+            <th>img</th>
+            <th>Created at</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        @foreach($news as $post)
+        @foreach($images as $image)
             <tr>
-                <td>{{$post->id}}</td>
-                <td><img src="{{asset($post->title_image)}}" class="title-image" alt=""></td>
-                <td>{{$post->titleUkr}}</td>
-                <td>{{$post->titleEng}}</td>
-{{--                <td>--}}
-{{--                    <div class="hide_text">{{$post->contentUkr}}</div>--}}
-{{--                </td>--}}
-{{--                <td>--}}
-{{--                    <div class="hide_text">{{$post->contentEng}}</div>--}}
-{{--                </td>--}}
+                <td>{{$image->id}}</td>
+                <td>
+                    <a data-fancybox href="{{$image->path}}">
+                        <img class="image-gallery single-images" src="{{$image->path}}" alt="">
+                    </a>
+                </td>
+                <td>{{$image->created_at}}</td>
                 <td>
                     <div class="d-grid">
-                        <a href="{{route('news.edit', $post->id)}}"
-                           class="btn btn-outline-primary">Редагувати</a>
-                        <div class="d-grid">
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" data-bs-name="{{$post->titleUkr}}"
-                                    data-bs-id="{{$post->id}}">
-                                Видалити
-                            </button>
-                        </div>
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                data-bs-id="{{$image->id}}">
+                            Видалити
+                        </button>
                     </div>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-
-    {{$news->links()}}
+    {{$images->links()}}
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -56,7 +45,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <p class="col-form-label">Ви впевнені у видалені <b id="recipient-name"></b>?</p>
+                        <p class="col-form-label">Ви впевнені у видалені?<b id="recipient-name"></b></p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -85,11 +74,11 @@
             // Update the modal's content.
             var modalTitle = exampleModal.querySelector('.modal-title')
             var modalBodyInput = exampleModal.querySelector('.modal-body b')
-            var modalForm=exampleModal.querySelector('#form_delete')
+            var modalForm = exampleModal.querySelector('#form_delete')
 
             modalTitle.textContent = 'Видалити ' + name
             modalBodyInput.textContent = name
-            modalForm.action=window.location.origin+'/news/'+id
+            modalForm.action = window.location.origin + '/photos/' + id
         })
     </script>
 @endsection

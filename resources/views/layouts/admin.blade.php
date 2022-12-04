@@ -23,6 +23,9 @@
             integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- Fancypps -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -46,7 +49,7 @@
                     <a class="nav-link" href="{{route('team.index')}}">Команда</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">Галерея</a>
+                    <a class="nav-link" aria-current="page" href="{{route('photos.index')}}">Галерея</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="">Ресурси</a>
@@ -58,5 +61,6 @@
 <main class="container py-4">
     @yield('content')
 </main>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 </body>
 </html>

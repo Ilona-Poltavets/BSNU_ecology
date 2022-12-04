@@ -36,6 +36,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('all_news',"App\Http\Controllers\NewsController@viewAll")->name('all_news');
+Route::get('/gallery','App\Http\Controllers\GalleryController@getGallery')->name('gallery');
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::get('all_news',"App\Http\Controllers\NewsController@viewAll")->name('all_
 Route::resource('team','App\Http\Controllers\TeamController');
 Route::resource('news','App\Http\Controllers\NewsController');
 Route::post('/upload', 'App\Http\Controllers\NewsController@upload');
+Route::resource('photos','App\Http\Controllers\GalleryController');
 
 /*
 |--------------------------------------------------------------------------
