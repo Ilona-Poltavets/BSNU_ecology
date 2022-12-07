@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\News;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Nette\Utils\Image;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,7 @@ class HomeController extends Controller
     {
         $data['news']=News::orderby('created_at',"desc")->take(5)->get();
         $data['team']=Team::all();
+        $data['images']=Gallery::orderby('created_at','desc')->paginate(4);
         return view('home',$data);
     }
     public function about(){

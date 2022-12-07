@@ -36,6 +36,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('all_news',"App\Http\Controllers\NewsController@viewAll")->name('all_news');
+Route::get('/news/{id}',"App\Http\Controllers\NewsController@show")->name('news.show');
 Route::get('/gallery','App\Http\Controllers\GalleryController@getGallery')->name('gallery');
 Route::get('/resources/{type}','App\Http\Controllers\ResourceController@getResources')->name('resources');
 
@@ -45,11 +46,17 @@ Route::get('/resources/{type}','App\Http\Controllers\ResourceController@getResou
 |--------------------------------------------------------------------------
 */
 
-Route::resource('team','App\Http\Controllers\TeamController');
-Route::resource('news','App\Http\Controllers\NewsController');
-Route::post('/upload', 'App\Http\Controllers\NewsController@upload');
-Route::resource('photos','App\Http\Controllers\GalleryController');
-Route::resource('resource','App\Http\Controllers\ResourceController');
+Route::resource('team','App\Http\Controllers\TeamController')->middleware('auth');
+Route::get('/news',"App\Http\Controllers\NewsController@index")->name('news.index')->middleware('auth');
+Route::get('/news/create',"App\Http\Controllers\NewsController@create")->name('news.create')->middleware('auth');
+Route::post('/news',"App\Http\Controllers\NewsController@store")->name('news.store')->middleware('auth');
+Route::get('/news/{id}/edit',"App\Http\Controllers\NewsController@edit")->name('news.edit')->middleware('auth');
+Route::put('/news/{id}',"App\Http\Controllers\NewsController@update")->name('news.update')->middleware('auth');
+Route::delete('/news/{id}',"App\Http\Controllers\NewsController@destroy")->name('news.destroy')->middleware('auth');
+//Route::resource('news','App\Http\Controllers\NewsController')->middleware('auth');
+Route::post('/upload', 'App\Http\Controllers\NewsController@upload')->middleware('auth');
+Route::resource('photos','App\Http\Controllers\GalleryController')->middleware('auth');
+Route::resource('resource','App\Http\Controllers\ResourceController')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------

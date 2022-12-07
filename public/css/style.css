@@ -2,12 +2,18 @@
 .menu {
     /*background-color: #316fd0;*/
     background: url("../images/background.JPG") no-repeat #ECE7EA;
+    background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
 }
 
 .select_lang {
     background-color: transparent;
     border: 0;
+}
+
+.menu .container-fluid .collapse ul li select {
+    color: #cbe065;
+    font-size: 25px;
 }
 
 .select_lang option {
@@ -20,6 +26,10 @@
 
 .nav-text {
     font-size: 30px;
+}
+
+.menu .container-fluid .collapse ul li a {
+    color: #cbe065;
 }
 
 /*************** END Home Page ***************/
@@ -237,24 +247,25 @@ a:hover {
 
 /*************** END News ***************/
 /*************** Gallery ***************/
-.tile{
+.tile {
     width: 300px;
     height: 300px;
-    border:0 black solid;
+    border: 0 black solid;
     border-radius: 10px;
-    float:left;
+    float: left;
     display: flex;
     margin: 10px;
     object-fit: cover;
 }
 
-.content_preview {
-    width: 100%;
-    height: 80vh;
-}
+/*.content_preview {*/
+/*    width: 100%;*/
+/*    height: 80vh;*/
+/*}*/
 .file-icon {
     width: 30px;
 }
+
 /*************** END Gallery ***************/
 
 img {

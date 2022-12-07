@@ -9,7 +9,7 @@
             @foreach($files as $file)
                 <li  class="list-group-item">
                     <img class="file-icon" src="{{asset('/images/file.png')}}" alt=""/>
-                    <a href="../{{$file->path}}" target="_blank">{{$file->name}}</a>
+                    <a href="{{asset($file->path)}}" target="_blank">{{$file->name}}</a>
                 </li>
             @endforeach
         </ul>

@@ -40,22 +40,15 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script type="text/javascript" src="{{url('js/script.js')}}"></script>
 </head>
-<body onload="myFunction()">
-<div id="loader" class="body">
-    <div class="loader">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</div>
-<div style="display:none;" id="myDiv">
+<body>
+<div id="myDiv">
     <div class="logos">
+        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
         <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
         <div class="container-fluid">
@@ -108,7 +101,7 @@
     <div class="">
         <div class="textBlock">
             <img class="logo-title1 mx-4" src="{{asset("images/logo.jpg")}}" alt=""/>
-            <h2 class="text">"European Green Dimensions"</h2>
+            <h2 class="text">European Green Dimensions</h2>
         </div>
         <div class="textBlock2">
             <img class="logo-title2 mx-4" src="{{asset("images/logo_bsnu.jpg")}}" alt=""/>
@@ -140,7 +133,16 @@
 
     <h1 class="funny-title section-title">@lang("messages.Gallery")</h1>
 
-    <a class="btn btn-outline-info" href="">@lang('messages.View more')</a>
+    <div class="container">
+        @foreach($images as $image)
+            <a data-fancybox="images" href="{{$image->path}}">
+                <img class="tile" src="{{$image->path}}" alt="">
+            </a>
+        @endforeach
+        <div style="clear: left">
+            {{$images->links()}}
+        </div>
+    </div>
 
     <h1 class="header-title" id="team">@lang("messages.Keep in touch")</h1>
     <div class="container">
@@ -210,17 +212,17 @@
         </div>
     </div>
 </div>
-<script>
-    var myVar;
+{{--<script>--}}
+{{--    var myVar;--}}
 
-    function myFunction() {
-        myVar = setTimeout(showPage, 3000);
-    }
+{{--    function myFunction() {--}}
+{{--        myVar = setTimeout(showPage, 3000);--}}
+{{--    }--}}
 
-    function showPage() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("myDiv").style.display = "block";
-    }
-</script>
+{{--    function showPage() {--}}
+{{--        document.getElementById("loader").style.display = "none";--}}
+{{--        document.getElementById("myDiv").style.display = "block";--}}
+{{--    }--}}
+{{--</script>--}}
 </body>
 </html>

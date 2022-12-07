@@ -55,6 +55,32 @@
                     <a class="nav-link" aria-current="page" href="{{route('resource.index')}}">Ресурси</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ms-auto">
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('login')}}">Login</a></li>
+                    @if(Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('register')}}">Register</a></li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            {{Auth::user()->name}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Exit</a>
+                                <form id="logout-form" action="{{route('logout')}}" method="post"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+            </ul>
         </div>
     </div>
 </nav>

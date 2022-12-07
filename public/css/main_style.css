@@ -1,13 +1,18 @@
 /*************** Nav bar ***************/
 .menu {
-    background-color: transparent; /*rgba(0, 0, 0, 0.3);*/
+    /*background-color: transparent;*/
+    background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
-    /*color:rgba(0,0,0,0.5);*/
 }
 
 .select_lang {
     background-color: transparent;
     border: 0;
+}
+
+.menu .container-fluid .collapse ul li select {
+    color: #cbe065;
+    font-size: 25px;
 }
 
 .select_lang option {
@@ -17,6 +22,11 @@
 .nav-text {
     font-size: 30px;
 }
+
+.menu .container-fluid .collapse ul li a {
+    color: #cbe065;
+}
+
 /*************** END Nav bar ***************/
 /*************** Home Page ***************/
 .mainBackground {
@@ -34,21 +44,42 @@
 
 .textBlock h2 {
     /*font-family: secondary;*/
-    text-align: right;
-    text-shadow: 5px 5px rgba(0, 0, 0, 0.5);
-    font-size: inherit;
+    /*text-align: right;*/
+    /*text-shadow: 5px 5px rgba(0, 0, 0, 0.5);*/
+    /*font-size: 10vmin;*/
+    /*font-size: 5rem;*/
+    /*font-size: calc( (100vw - 1rem)/(5rem - 1rem) * (5rem - 1rem) + 1rem);*/
+
+    letter-spacing: 3px;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.65;
+    word-wrap: anywhere;
+    word-break: break-word;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320)));
+    text-transform: uppercase;
+    text-align: left;
+    max-width: 90%;
+    margin-left: auto;
+    display: inline-block;
+    /*text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);*/
 }
 
 .textBlock {
     color: #cbe065;
-    min-width: 400px;
+    min-width: 200px;
     display: flex;
     position: absolute;
     top: 20vh;
     left: 5vw;
     background-color: rgba(0, 0, 0, 0);
     z-index: 1000;
-    font-size: 5em;
+    /*font-size: 5em;*/
+    /*font-size: calc( (100vw - 1rem)/(5rem - 1rem) * (5rem - 1rem) + 1rem);*/
+    /*font-size: 10vmin;*/
 }
 
 .logo-title2 {
@@ -58,24 +89,38 @@
     float: left;
 }
 
-.textBlock h3 {
-    /*font-family: secondary;*/
-    text-align: right;
-    text-shadow: 5px 5px rgba(0, 0, 0, 0.5);
-    font-size: inherit;
+.textBlock2 h3 {
+    -webkit-text-size-adjust: 100%;
+    letter-spacing: 3px;
+    line-height: 1.65;
+    word-wrap: anywhere;
+    word-break: break-word;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: calc(15px + 10 * ((100vw - 320px) / (1280 - 320)));
+    text-transform: uppercase;
+    text-align: left;
+    max-width: 90%;
+    margin-left: auto;
+    display: inline-block;
+    /*text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.5);*/
 }
 
 .textBlock2 {
     color: #cbe065;
-    min-width: 400px;
+    min-width: 300px;
     display: flex;
     position: absolute;
     top: 35vh;
     left: 5vw;
     background-color: rgba(0, 0, 0, 0);
     z-index: 1000;
-    font-size: 5em;
+    margin-top: 20px;
+    /*font-size: 5em;*/
 }
+
 /*************** END Home Page ***************/
 /*************** Title ***************/
 @import "https://fonts.googleapis.com/css?family=Russo+One";
@@ -243,7 +288,8 @@ h1.funny-title {
 .list li {
     list-style-type: none;
 }
-.list li a:hover{
+
+.list li a:hover {
     color: black;
 }
 
@@ -254,3 +300,13 @@ h1.funny-title {
 }
 
 /*************** END Footer ***************/
+.tile {
+    width: 300px;
+    height: 300px;
+    border: 0 black solid;
+    border-radius: 10px;
+    float: left;
+    display: flex;
+    margin: 10px;
+    object-fit: cover;
+}
