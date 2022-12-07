@@ -74,7 +74,7 @@
                         <a class="nav-link" href="{{route('gallery')}}">@lang("messages.Gallery")</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">@lang("messages.Resources")</a>
+                        <a class="nav-link" href="{{route('resources',"pdf")}}">@lang("messages.Resources")</a>
                     </li>
                 </ul>
 
@@ -107,7 +107,7 @@
     var myVar;
 
     function myFunction() {
-        myVar = setTimeout(showPage, 3000);
+        myVar = setTimeout(showPage, 2000);
     }
 
     function showPage() {

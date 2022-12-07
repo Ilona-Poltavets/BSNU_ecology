@@ -82,7 +82,7 @@
                         <a class="nav-link" href="{{route('gallery')}}">@lang("messages.Gallery")</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">@lang("messages.Resources")</a>
+                        <a class="nav-link" href="{{route('resources',"pdf")}}">@lang("messages.Resources")</a>
                     </li>
                 </ul>
 

@@ -69,6 +69,7 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $post = News::find($id);
+        Storage::delete($post->title_image);
         $post->delete();
         return redirect()->route('news.index');
     }

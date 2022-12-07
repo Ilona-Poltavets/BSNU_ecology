@@ -1,0 +1,62 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Resource;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+class ResourceController extends Controller
+{
+    public function index()
+    {
+        $data['resources'] = Resource::paginate(20);
+        return view('resources.index', $data);
+    }
+
+    public function getResources($type)
+    {
+//        if(!isset($request->type)){
+//            $type='pdf';
+//        }
+        $data['files']=Resource::where('type',$type)->orderBy('created_at')->paginate(15);
+        return view('resource',$data);
+    }
+
+//    public function show($id){
+//        $file=Resource::find($id);
+//        return view('resources.show',compact('file'));
+//    }
+
+    public function create()
+    {
+        return view('resources.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->saveData($request);
+        return redirect()->route('resource.index');
+    }
+
+    function saveData($request)
+    {
+        foreach ($request->file('files') as $file) {
+            $path = $file->storeAs('storage/resources', $file->getClientOriginalName());
+            $type = $file->extension();
+            $resource = new Resource();
+            $resource->name = $file->getClientOriginalName();
+            $resource->path = $path;
+            $resource->type = $type;
+            $resource->save();
+        }
+    }
+
+    public function destroy($id)
+    {
+        $file = Resource::find($id);
+        Storage::delete($file->path);
+        $file->delete();
+        return redirect()->route('resource.index');
+    }
+}

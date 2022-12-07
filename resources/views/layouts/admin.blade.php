@@ -52,7 +52,7 @@
                     <a class="nav-link" aria-current="page" href="{{route('photos.index')}}">Галерея</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">Ресурси</a>
+                    <a class="nav-link" aria-current="page" href="{{route('resource.index')}}">Ресурси</a>
                 </li>
             </ul>
         </div>
