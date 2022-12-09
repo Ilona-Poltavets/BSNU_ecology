@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Validator;
 class TeamController extends Controller
 {
     const VALIDATION_RULE = [
-        'nameUkr' => 'required',
-        'nameEng' => 'required',
-        'rankUkr' => 'required',
-        'rankEng' => 'required',
-        'aboutUkr' => 'required',
-        'aboutEng' => 'required',
+        'image' => 'image|mimes:jpg,jpeg,png',
+        'nameUkr' => 'required|max:255',
+        'nameEng' => 'required|max:255',
+        'rankUkr' => 'required|max:255',
+        'rankEng' => 'required|max:255',
+        'aboutUkr' => 'required|max:255',
+        'aboutEng' => 'required|max:255',
     ];
     public function index(){
         $data['teamMembers'] = Team::paginate(10);
@@ -61,7 +62,7 @@ class TeamController extends Controller
         $member=Team::find($id);
         $validator = Validator::make($request->all(), self::VALIDATION_RULE);
         if ($validator->fails()) {
-            return redirect('team/edit')
+            return redirect('team/'.$id.'/edit')
                 ->withErrors($validator)
                 ->withInput();
         }

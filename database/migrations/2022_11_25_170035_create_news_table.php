@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title_image');
             $table->string('titleUkr');
             $table->string('titleEng');
-            $table->mediumText('contentUkr');
-            $table->mediumText('contentEng');
+            $table->longText('contentUkr');
+            $table->longText('contentEng');
             $table->timestamps();
         });
     }

@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ResourceController extends Controller
 {
+    const VALIDATION_RULE=[
+        'files' => 'required',
+        'files.*' => 'mimes:pdf,pptx'
+    ];
     public function index()
     {
         $data['resources'] = Resource::paginate(20);
@@ -19,7 +24,7 @@ class ResourceController extends Controller
 //        if(!isset($request->type)){
 //            $type='pdf';
 //        }
-        $data['files']=Resource::where('type',$type)->orderBy('created_at')->paginate(15);
+        $data['files']=Resource::where('type',$type)->orderBy('created_at')->paginate(10);
         return view('resource',$data);
     }
 
@@ -35,6 +40,12 @@ class ResourceController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), self::VALIDATION_RULE);
+        if ($validator->fails()) {
+            return redirect('resource/create')
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
         $this->saveData($request);
         return redirect()->route('resource.index');
     }

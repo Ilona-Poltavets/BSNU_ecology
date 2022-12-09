@@ -11,7 +11,8 @@
 }
 
 .menu .container-fluid .collapse ul li select {
-    color: #cbe065;
+    /*color: #cbe065;*/
+    color:white;
     font-size: 25px;
 }
 
@@ -24,7 +25,8 @@
 }
 
 .menu .container-fluid .collapse ul li a {
-    color: #cbe065;
+    /*color: #cbe065;*/
+    color:white;
 }
 
 /*************** END Nav bar ***************/
@@ -40,6 +42,8 @@
     height: 100px;
     /*align-content: center;*/
     float: left;
+    border: 0 black solid;
+    border-radius: 10px;
 }
 
 .textBlock h2 {
@@ -69,7 +73,8 @@
 }
 
 .textBlock {
-    color: #cbe065;
+    /*color: #cbe065;*/
+    color:white;
     min-width: 200px;
     display: flex;
     position: absolute;
@@ -87,6 +92,8 @@
     height: 100px;
     /*align-content: center;*/
     float: left;
+    /*border: 0 black solid;*/
+    /*border-radius: 50%;*/
 }
 
 .textBlock2 h3 {
@@ -109,7 +116,8 @@
 }
 
 .textBlock2 {
-    color: #cbe065;
+    /*color: #cbe065;*/
+    color:white;
     min-width: 300px;
     display: flex;
     position: absolute;

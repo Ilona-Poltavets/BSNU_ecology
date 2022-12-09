@@ -40,8 +40,15 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script type="text/javascript" src="{{url('js/script.js')}}"></script>
 </head>
-<body>
-<div id="myDiv">
+<body onload="myFunction()">
+<div id="loader" class="body">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div style="display:none;" id="myDiv">
     <div class="logos">
         <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
@@ -100,11 +107,11 @@
 
     <div class="">
         <div class="textBlock">
-            <img class="logo-title1 mx-4" src="{{asset("images/logo.jpg")}}" alt=""/>
+            <img class="logo-title1 mx-4" src="{{asset("images/ue.jpg")}}" alt=""/>
             <h2 class="text">European Green Dimensions</h2>
         </div>
         <div class="textBlock2">
-            <img class="logo-title2 mx-4" src="{{asset("images/logo_bsnu.jpg")}}" alt=""/>
+            <img class="logo-title2 mx-4" src="{{asset("images/logo.jpg")}}" alt=""/>
             <h3 class="text">@lang("messages.Bsnu")</h3>
         </div>
         <img src="{{asset('images/background.jpg')}}" alt="background" class="mainBackground"/>
@@ -133,18 +140,24 @@
 
     <h1 class="funny-title section-title">@lang("messages.Gallery")</h1>
 
-    <div class="container">
-        @foreach($images as $image)
-            <a data-fancybox="images" href="{{$image->path}}">
-                <img class="tile" src="{{$image->path}}" alt="">
-            </a>
-        @endforeach
-        <div style="clear: left">
-            {{$images->links()}}
+    <div class="container" id="photos">
+        {{--                @foreach($images as $image)--}}
+        {{--                    <a data-fancybox="images" href="{{$image->path}}">--}}
+        {{--                        <img class="tile" src="{{$image->path}}" alt="">--}}
+        {{--                    </a>--}}
+        {{--                @endforeach--}}
+        {{--                <div style="clear: left">--}}
+        {{--                    {{$images->links()}}--}}
+        {{--                </div>--}}
+
+    </div>
+    <div class="row p-4" style="clear: left">
+        <div class="col text-center">
+            <button class="btn btn-outline-primary" id="viewmore">@lang('messages.View more')</button>
         </div>
     </div>
 
-    <h1 class="header-title" id="team">@lang("messages.Keep in touch")</h1>
+    <h1 class="header-title" style="clear: left" id="team">@lang("messages.Keep in touch")</h1>
     <div class="container">
         <div class="socials">
             <div class="social youtube">
@@ -183,7 +196,7 @@
     {{--    </p>--}}
 
 
-    <div class="footer">
+    <div class="footer" style="clear: left">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
@@ -194,7 +207,9 @@
                     <b>@lang("messages.footer_last_news")</b>
                     <ul class="">
                         @foreach($news as $post)
-                            <li><a style="text-decoration: none;color:black" href="{{route("news.show",$post->id)}}">{{App::isLocale("uk")?$post->titleUkr:$post->titleEng}}</a></li>
+                            <li><a style="text-decoration: none;color:black"
+                                   href="{{route("news.show",$post->id)}}">{{App::isLocale("uk")?$post->titleUkr:$post->titleEng}}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -212,17 +227,41 @@
         </div>
     </div>
 </div>
-{{--<script>--}}
-{{--    var myVar;--}}
+<script>
+    var myVar;
 
-{{--    function myFunction() {--}}
-{{--        myVar = setTimeout(showPage, 3000);--}}
-{{--    }--}}
+    function myFunction() {
+        myVar = setTimeout(showPage, 1000);
+    }
 
-{{--    function showPage() {--}}
-{{--        document.getElementById("loader").style.display = "none";--}}
-{{--        document.getElementById("myDiv").style.display = "block";--}}
-{{--    }--}}
-{{--</script>--}}
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("myDiv").style.display = "block";
+    }
+    var len = 4;
+    var maxLen = 0;
+    var array = JSON.parse('<?php echo $images; ?>');
+    maxLen = array.length-4;
+
+    function getPhotos() {
+        var newHTML = [];
+        for (var i = 0; i < len; i++) {
+            newHTML.push('<a data-fancybox="images" href="' + array[i].path + '"><img class="tile" src="' + array[i].path + '" alt=""></a>');
+        }
+        $("#photos").html(newHTML.join(""));
+    }
+
+    getPhotos();
+    $('#viewmore').on('click', function () {
+        if (maxLen - 4 < 0) {
+            len = array.length;
+            this.hidden=true;
+        } else {
+            len += 4;
+            maxLen -= 4;
+        }
+        getPhotos();
+    })
+</script>
 </body>
 </html>

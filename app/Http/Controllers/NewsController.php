@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Validator;
 class NewsController extends Controller
 {
     const VALIDATION_RULE = [
-        'titleUkr' => 'required|',
-        'titleEng' => 'required|',
+        'title_image' => 'mimes:jpg,jpeg,png,webp',
+        'titleUkr' => 'required|max:255',
+        'titleEng' => 'required|max:255',
         'contentUkr' => 'required|',
         'contentEng' => 'required|',
     ];
@@ -45,7 +46,12 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $post = new News();
-        $this->validateData($request);
+        $validator = $this->validateData($request);
+        if ($validator->fails()) {
+            return redirect('news/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
         $this->save($post, $request);
 
         return redirect()->route('news.index');
@@ -60,7 +66,12 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $post = News::find($id);
-        $this->validateData($request);
+        $validator = $this->validateData($request);
+        if ($validator->fails()) {
+            return redirect('news/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
         $this->save($post, $request);
 
         return redirect()->route('news.index');
@@ -91,24 +102,20 @@ class NewsController extends Controller
     function validateData($request)
     {
         $validator = Validator::make($request->all(), self::VALIDATION_RULE);
-        if ($validator->fails()) {
-            return redirect('news/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
+        return $validator;
     }
 
     function save($post, $request)
     {
-        $rootPath = ($post->title_image==null || $post->title_image=="") ?'images/No_photo.png':$post->title_image;
+        $rootPath = ($post->title_image == null || $post->title_image == "") ? 'images/No_photo.png' : $post->title_image;
         if ($request->file('title_image') != null) {
-            if($post->title_image!='images/No_photo.png'){
+            if ($post->title_image != 'images/No_photo.png') {
                 Storage::delete($rootPath);
             }
             $rootPath = ($request->title_image)->store("storage/news");
         }
 
-        $post->title_image=$rootPath;
+        $post->title_image = $rootPath;
         $post->titleUkr = $request->titleUkr;
         $post->titleEng = $request->titleEng;
         $post->contentUkr = $request->contentUkr;

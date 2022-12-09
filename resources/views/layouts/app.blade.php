@@ -42,12 +42,12 @@
 </div>
 <div style="display:none;" id="myDiv">
     <div class="logos">
+        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
         <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
         <div class="container-fluid">

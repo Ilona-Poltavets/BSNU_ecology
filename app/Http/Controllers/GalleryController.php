@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
+    const VALIDATION_RULE=[
+        'files' => 'required',
+        'files.*' => 'image|mimes:jpg,jpeg,png'
+    ];
     public function index()
     {
-        $data['images'] = Gallery::paginate(20);
+        $data['images'] = Gallery::orderBy('created_at', 'DESC')->paginate(20);
         return view('gallery.index', $data);
     }
 //    public function show(){
@@ -19,7 +24,7 @@ class GalleryController extends Controller
 //    }
     public function getGallery()
     {
-        $data['images'] = Gallery::orderBy('created_at', 'DESC')->paginate(16);
+        $data['images'] = json_encode(Gallery::orderBy('created_at', 'DESC')->get());
         return view('gallery', $data);
     }
 
@@ -30,6 +35,12 @@ class GalleryController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), self::VALIDATION_RULE);
+        if ($validator->fails()) {
+            return redirect('photos/create')
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
         $this->saveData($request);
         return redirect()->route('photos.index');
     }

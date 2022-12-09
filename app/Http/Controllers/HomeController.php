@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $data['news']=News::orderby('created_at',"desc")->take(5)->get();
         $data['team']=Team::all();
-        $data['images']=Gallery::orderby('created_at','desc')->paginate(4);
+        $data['images']=json_encode(Gallery::orderby('created_at','desc')->get());
         return view('home',$data);
     }
     public function about(){

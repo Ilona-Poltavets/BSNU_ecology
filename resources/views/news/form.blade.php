@@ -1,8 +1,9 @@
+
 <div class="form-group row my-2">
     <label for="title_image" class="col-2 col-form-label">Головна картинка</label>
     <div class="col-10">
         <input name="title_image" class="form-control @error('title_image') is-invalid @enderror" type="file"
-               value="{{isset($post)? $post->title_image: old('title_image')}}" placeholder="Заголовок"/>
+               value="{{isset($post)? $post->title_image: old('title_image')}}"/>
         @error('title_image')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -13,7 +14,7 @@
     <label for="titleUkr" class="col-2 col-form-label">Заголовок українською</label>
     <div class="col-10">
         <input name="titleUkr" class="form-control @error('titleUkr') is-invalid @enderror" type="text"
-               value="{{isset($post)? $post->titleUkr: old('titleUkr')}}" placeholder="Заголовок"/>
+               value="{{isset($post)? '$post->titleUkr': old('titleUkr')}}" placeholder="Заголовок"/>
         @error('titleUkr')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror

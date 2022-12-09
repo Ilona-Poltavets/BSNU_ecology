@@ -13,6 +13,9 @@
                 </li>
             @endforeach
         </ul>
+        <div>
+            {{$files->links()}}
+        </div>
     </div>
 
 {{--    <script>--}}
