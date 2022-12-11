@@ -1,8 +1,19 @@
 /*************** Nav bar ***************/
 .menu {
-    /*background-color: transparent;*/
-    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
     width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .menu {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@media (min-width: 1000px) {
+    .menu {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 }
 
 .select_lang {
@@ -11,8 +22,7 @@
 }
 
 .menu .container-fluid .collapse ul li select {
-    /*color: #cbe065;*/
-    color:white;
+    color: white;
     font-size: 25px;
 }
 
@@ -25,8 +35,9 @@
 }
 
 .menu .container-fluid .collapse ul li a {
-    /*color: #cbe065;*/
-    color:white;
+    letter-spacing: 3px;
+    margin: 0 30px;
+    color: white;
 }
 
 /*************** END Nav bar ***************/
@@ -40,60 +51,41 @@
 .logo-title1 {
     width: 100px;
     height: 100px;
-    /*align-content: center;*/
     float: left;
     border: 0 black solid;
     border-radius: 10px;
 }
 
 .textBlock h2 {
-    /*font-family: secondary;*/
-    /*text-align: right;*/
-    /*text-shadow: 5px 5px rgba(0, 0, 0, 0.5);*/
-    /*font-size: 10vmin;*/
-    /*font-size: 5rem;*/
-    /*font-size: calc( (100vw - 1rem)/(5rem - 1rem) * (5rem - 1rem) + 1rem);*/
-
     letter-spacing: 3px;
-    -webkit-text-size-adjust: 100%;
     line-height: 1.65;
-    word-wrap: anywhere;
-    word-break: break-word;
-    box-sizing: inherit;
     margin: 0;
     padding: 0;
     font-weight: bolder;
-    font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320)));
+    font-size: calc(20px + 50 * ((100vw - 320px) / (1350 - 320)));
     text-transform: uppercase;
     text-align: left;
-    max-width: 90%;
-    margin-left: auto;
     display: inline-block;
-    /*text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);*/
+    text-shadow: calc(3px + 2 * ((100vw - 320px) / (1280 - 320))) calc(3px + 2 * ((100vw - 320px) / (1280 - 320))) rgba(0, 0, 0, 0.7);
 }
 
 .textBlock {
-    /*color: #cbe065;*/
-    color:white;
+    align-items: center;
+    color: #cbe065;
     min-width: 200px;
     display: flex;
     position: absolute;
     top: 20vh;
-    left: 5vw;
+    left: 2vw;
     background-color: rgba(0, 0, 0, 0);
-    z-index: 1000;
-    /*font-size: 5em;*/
-    /*font-size: calc( (100vw - 1rem)/(5rem - 1rem) * (5rem - 1rem) + 1rem);*/
-    /*font-size: 10vmin;*/
 }
 
 .logo-title2 {
     width: 100px;
     height: 100px;
-    /*align-content: center;*/
     float: left;
-    /*border: 0 black solid;*/
-    /*border-radius: 50%;*/
+    border: 0 black solid;
+    border-radius: 50%;
 }
 
 .textBlock2 h3 {
@@ -106,27 +98,22 @@
     margin: 0;
     padding: 0;
     font-weight: bold;
-    font-size: calc(15px + 10 * ((100vw - 320px) / (1280 - 320)));
+    font-size: calc(15px + 16 * ((100vw - 320px) / (1280 - 320)));
     text-transform: uppercase;
     text-align: left;
-    max-width: 90%;
     margin-left: auto;
     display: inline-block;
-    /*text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.5);*/
 }
 
 .textBlock2 {
-    /*color: #cbe065;*/
-    color:white;
+    color: white;
     min-width: 300px;
     display: flex;
     position: absolute;
     top: 35vh;
-    left: 5vw;
+    left: 2vw;
     background-color: rgba(0, 0, 0, 0);
-    z-index: 1000;
     margin-top: 20px;
-    /*font-size: 5em;*/
 }
 
 /*************** END Home Page ***************/
@@ -146,49 +133,56 @@ h1.funny-title {
     font-size: 4em;
 }
 
-@-webkit-keyframes move-background {
-    0% {
-        background-position: -300px 0
-    }
-    100% {
-        background-position: 300px -300px
+@media (max-width: 600px) {
+    .section-title {
+        color: #2e5c4d;
     }
 }
 
-@-moz-keyframes move-background {
-    0% {
-        background-position: -300px 0
+@media (min-width: 600px) {
+    @-webkit-keyframes move-background {
+        0% {
+            background-position: -300px 0
+        }
+        100% {
+            background-position: 300px -100px
+        }
     }
-    100% {
-        background-position: 300px -300px
-    }
-}
 
-@keyframes move-background {
-    0% {
-        background-position: -300px 0
+    @-moz-keyframes move-background {
+        0% {
+            background-position: -300px 0
+        }
+        100% {
+            background-position: 300px -300px
+        }
     }
-    100% {
-        background-position: 300px -300px
-    }
-}
 
-.section-title {
-    -webkit-animation-play-state: running;
-    -moz-animation-play-state: running;
-    animation-play-state: running;
-    color: transparent;
-    background: url("../images/background.JPG") no-repeat #ECE7EA;
-    background-size: cover;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-animation: move-background 20s infinite linear alternate;
-    -moz-animation: move-background 20s infinite linear alternate;
-    animation: move-background 20s infinite linear alternate;
-    text-transform: uppercase;
+    @keyframes move-background {
+        0% {
+            background-position: -300px 0
+        }
+        100% {
+            background-position: 300px -300px
+        }
+    }
+    .section-title {
+        -webkit-animation-play-state: running;
+        -moz-animation-play-state: running;
+        animation-play-state: running;
+        color: transparent;
+        background: url("../images/background.JPG") no-repeat #ECE7EA;
+        background-size: cover;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        -webkit-animation: move-background 20s infinite linear alternate;
+        -moz-animation: move-background 20s infinite linear alternate;
+        animation: move-background 20s infinite linear alternate;
+        text-transform: uppercase;
+    }
 }
 
 /*************** END Title ***************/
@@ -199,13 +193,10 @@ h1.funny-title {
     overflow-y: hidden;
     white-space: nowrap;
     height: 80px;
-    /*box-sizing: border-box;*/
-    /*width: 700px;*/
 }
 
 .logo {
     display: inline-block;
-    /*float: left;*/
     height: inherit;
     width: auto;
     padding: 0 20px 0 20px;
@@ -225,7 +216,7 @@ h1.funny-title {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 630px;
+    max-width: 350px;
 }
 
 .social a {
@@ -247,18 +238,8 @@ h1.funny-title {
     color: #fff;
 }
 
-.google-plus a:hover {
-    background: #DD4B39;
-    color: #fff;
-}
-
-.twitter a:hover {
-    background: #00acee;
-    color: #fff;
-}
-
 .instagram a:hover {
-    background: #3f729b;
+    background: #ff8bfc;
     color: #fff;
 }
 
@@ -267,23 +248,8 @@ h1.funny-title {
     color: #fff;
 }
 
-.pinterest a:hover {
-    background: #c8232c;
-    color: #fff;
-}
-
 .linkedin a:hover {
     background: #0e76a8;
-    color: #fff;
-}
-
-.telegram a:hover {
-    background: #249bd7;
-    color: #fff;
-}
-
-.whatsapp a:hover {
-    background: #50b154;
     color: #fff;
 }
 
@@ -308,8 +274,19 @@ h1.funny-title {
 }
 
 /*************** END Footer ***************/
+@media (max-width: 600px) {
+    .tile {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (min-width: 600px) {
+    .tile {
+        width: 300px;
+    }
+}
+
 .tile {
-    width: 300px;
     height: 300px;
     border: 0 black solid;
     border-radius: 10px;
@@ -317,4 +294,91 @@ h1.funny-title {
     display: flex;
     margin: 10px;
     object-fit: cover;
+}
+
+/*************** Team ***************/
+@media (min-width: 600px) {
+    .card-horizontal {
+        display: flex;
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .img-square-wrapper {
+        margin: auto;
+        padding: 10px;
+    }
+}
+
+.card-image {
+    border: 0;
+    border-radius: 50%;
+    max-width: 300px;
+    width: 300px;
+    height: 300px;
+    margin: calc(20px + 20 * ((100vw - 320px) / (1350 - 320)));
+    box-shadow: 0 8px 20px -4px #95abbb;
+    display: inline-block;
+}
+
+.card-body {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.card-body h4 {
+    clear: left;
+    color: #01b0f8;
+    font-size: calc(30px + 20 * ((100vw - 320px) / (1350 - 320)));
+}
+
+.card p {
+    width: 100%;
+    font-size: calc(15px + 10 * ((100vw - 320px) / (1350 - 320)));
+}
+
+.card {
+    min-width: 300px;
+    background: #fff;
+    margin: 0 10px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px -7px #c9dff0;
+}
+
+.owl-stage-outer {
+    padding: 30px 0;
+}
+
+.owl-nav {
+    display: none;
+}
+
+.owl-dots {
+    text-align: center;
+}
+
+.owl-dots span {
+    position: relative;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: block;
+    background: #fff;
+    border: 2px solid #01b0f8;
+    margin: 0 5px;
+}
+
+.owl-dots .active {
+    box-shadow: none;
+}
+
+.owl-dots .active span {
+    background: #01b0f8;
+    box-shadow: none;
+    height: 12px;
+    width: 12px;
+    margin-bottom: -1px;
 }

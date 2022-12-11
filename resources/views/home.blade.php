@@ -39,8 +39,11 @@
           integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script type="text/javascript" src="{{url('js/script.js')}}"></script>
+
+    <link rel="stylesheet" href="{{url('js/leaflet/leaflet.css')}}"/>
+    <script src="{{url('js/leaflet/leaflet.js')}}"></script>
 </head>
-<body onload="myFunction()">
+<body onload="myFunction()" style="overflow-x: hidden">
 <div id="loader" class="body">
     <div class="loader">
         <span></span>
@@ -59,7 +62,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            <button class="navbar-toggler menuBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -105,7 +108,7 @@
         </div>
     </nav>
 
-    <div class="">
+    <div>
         <div class="textBlock">
             <img class="logo-title1 mx-4" src="{{asset("images/ue.jpg")}}" alt=""/>
             <h2 class="text">European Green Dimensions</h2>
@@ -122,15 +125,23 @@
     <div class="gtco-testimonials">
         <div class="owl-carousel owl-carousel1 owl-theme">
             @foreach($team as $member)
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="{{asset($member->image)}}" alt="">
-                        <div class="card-body">
-                            <h5>
-                                {{App::isLocale('en')?$member->nameEng:$member->nameUkr}}
-                                <br/>
-                                <span>{{App::isLocale('en')?$member->aboutEng:$member->aboutUkr}}</span>
-                            </h5>
-                            <p class="card-text">{{App::isLocale('en')?$member->rankEng:$member->rankUkr}}</p>
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="card">
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img class="card-image" style="float:left" src="{{asset($member->image)}}" alt="">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{App::isLocale('en')?$member->nameEng:$member->nameUkr}}</h4>
+                                    <p class="card-text">
+                                        {{App::isLocale('en')?$member->aboutEng:$member->aboutUkr}}
+                                    </p>
+                                    <p>
+                                        {{App::isLocale('en')?$member->rankEng:$member->rankUkr}}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,15 +152,6 @@
     <h1 class="funny-title section-title">@lang("messages.Gallery")</h1>
 
     <div class="container" id="photos">
-        {{--                @foreach($images as $image)--}}
-        {{--                    <a data-fancybox="images" href="{{$image->path}}">--}}
-        {{--                        <img class="tile" src="{{$image->path}}" alt="">--}}
-        {{--                    </a>--}}
-        {{--                @endforeach--}}
-        {{--                <div style="clear: left">--}}
-        {{--                    {{$images->links()}}--}}
-        {{--                </div>--}}
-
     </div>
     <div class="row p-4" style="clear: left">
         <div class="col text-center">
@@ -163,12 +165,6 @@
             <div class="social youtube">
                 <a href="#" target="_blank"><i class="fa-brands fa-youtube fa-2x"></i></a>
             </div>
-            <div class="social google-plus">
-                <a href="#" target="_blank"><i class="fa-brands fa-google-plus fa-2x"></i></a>
-            </div>
-            <div class="social twitter">
-                <a href="#" target="_blank"><i class="fa-brands fa-twitter fa-2x"></i></a>
-            </div>
             <div class="social instagram">
                 <a href="https://www.instagram.com/europeangreendimensions/" target="_blank"><i
                         class="fa-brands fa-instagram fa-2x"></i></a>
@@ -177,24 +173,11 @@
                 <a href="#" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
             </div>
             <div class="social linkedin">
-                <a href="#" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
-            </div>
-            <div class="social telegram">
-                <a href="#" target="_blank"><i class="fa fa-paper-plane fa-2x"></i></a>
-            </div>
-            <div class="social whatsapp">
-                <a href="#" target="_blank" style="float: right"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                <a href="https://www.linkedin.com/company/88021671/admin/" target="_blank"><i
+                        class="fa-brands fa-linkedin fa-2x"></i></a>
             </div>
         </div>
     </div>
-    {{--    <p>--}}
-    {{--        @if(App::isLocale('en'))--}}
-    {{--            We offer you to subscribe to the mailing list to follow our latest events--}}
-    {{--        @elseif(App::isLocale('uk'))--}}
-    {{--            Пропонуємо Вам підписатись на email-розсилку, щоб стежити за останніми подіями--}}
-    {{--        @endif--}}
-    {{--    </p>--}}
-
 
     <div class="footer" style="clear: left">
         <div class="container-fluid">
@@ -225,8 +208,24 @@
                 </div>
             </div>
         </div>
+        <div id="map" style="width:100%;height: 300px;"></div>
     </div>
 </div>
+<script>
+    var map = L.map('map', {
+        center: [46.97164, 32.01590],
+        zoom: 19
+    });
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.marker([46.97164, 32.01590]).addTo(map)
+        .bindPopup('Petro Mohyla Black Sea National University')
+        .openPopup();
+</script>
 <script>
     var myVar;
 
@@ -238,10 +237,11 @@
         document.getElementById("loader").style.display = "none";
         document.getElementById("myDiv").style.display = "block";
     }
+
     var len = 4;
     var maxLen = 0;
     var array = JSON.parse('<?php echo $images; ?>');
-    maxLen = array.length-4;
+    maxLen = array.length - 4;
 
     function getPhotos() {
         var newHTML = [];
@@ -255,7 +255,7 @@
     $('#viewmore').on('click', function () {
         if (maxLen - 4 < 0) {
             len = array.length;
-            this.hidden=true;
+            this.hidden = true;
         } else {
             len += 4;
             maxLen -= 4;

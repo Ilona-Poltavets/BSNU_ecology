@@ -4,22 +4,23 @@ $(document).ready(function(){
         loop: true,
         center: true,
         margin: 0,
-        responsiveClass: true,
-        nav: false,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            680: {
-                items: 2,
-                nav: false,
-                loop: false
-            },
-            1000: {
-                items: 3,
-                nav: true
-            }
-        }
+        // responsiveClass: true,
+        items: 1,
+        nav: true
+        // responsive: {
+        //     0: {
+        //         items: 1,
+        //         nav: true
+        //     },
+        //     680: {
+        //         items: 1,
+        //         nav: true
+        //         // loop: false
+        //     },
+        //     1000: {
+        //         items: 1,
+        //         nav: true
+        //     }
+        // }
     });
 });

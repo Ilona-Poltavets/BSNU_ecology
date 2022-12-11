@@ -1,6 +1,5 @@
 /*************** Nav bar ***************/
 .menu {
-    /*background-color: #316fd0;*/
     background: url("../images/background.JPG") no-repeat #ECE7EA;
     background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -29,7 +28,9 @@
 }
 
 .menu .container-fluid .collapse ul li a {
-    color: #cbe065;
+    letter-spacing: 3px;
+    margin: 0 30px;
+    color:white;
 }
 
 /*************** END Home Page ***************/
@@ -39,58 +40,66 @@ h1.funny-title {
     border-top: 5px solid #E0DBDE;
     border-bottom: 5px solid #E0DBDE;
     text-align: center;
+    margin-top: 40px;
     margin-bottom: 5px;
     text-transform: uppercase;
     font-family: 'Russo One', sans-serif;
     font-weight: 900;
     letter-spacing: 8px;
     padding: 30px 0 30px 0;
-    font-size: 5em;
+    font-size: 4em;
 }
 
-@-webkit-keyframes move-background {
-    0% {
-        background-position: -300px 0
-    }
-    100% {
-        background-position: 300px -300px
+@media (max-width: 600px) {
+    .section-title {
+        color: #2e5c4d;
     }
 }
 
-@-moz-keyframes move-background {
-    0% {
-        background-position: -300px 0
+@media (min-width: 600px) {
+    @-webkit-keyframes move-background {
+        0% {
+            background-position: -300px 0
+        }
+        100% {
+            background-position: 300px -100px
+        }
     }
-    100% {
-        background-position: 300px -300px
-    }
-}
 
-@keyframes move-background {
-    0% {
-        background-position: -300px 0
+    @-moz-keyframes move-background {
+        0% {
+            background-position: -300px 0
+        }
+        100% {
+            background-position: 300px -300px
+        }
     }
-    100% {
-        background-position: 300px -300px
-    }
-}
 
-.section-title {
-    -webkit-animation-play-state: running;
-    -moz-animation-play-state: running;
-    animation-play-state: running;
-    color: transparent;
-    background: url("../images/background.JPG") no-repeat #ECE7EA;
-    background-size: cover;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-animation: move-background 20s infinite linear alternate;
-    -moz-animation: move-background 20s infinite linear alternate;
-    animation: move-background 20s infinite linear alternate;
-    text-transform: uppercase;
+    @keyframes move-background {
+        0% {
+            background-position: -300px 0
+        }
+        100% {
+            background-position: 300px -300px
+        }
+    }
+    .section-title {
+        -webkit-animation-play-state: running;
+        -moz-animation-play-state: running;
+        animation-play-state: running;
+        color: transparent;
+        background: url("../images/background.JPG") no-repeat #ECE7EA;
+        background-size: cover;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        -webkit-animation: move-background 20s infinite linear alternate;
+        -moz-animation: move-background 20s infinite linear alternate;
+        animation: move-background 20s infinite linear alternate;
+        text-transform: uppercase;
+    }
 }
 
 /*************** END Title ***************/
@@ -122,8 +131,6 @@ h1.funny-title {
     overflow-y: hidden;
     white-space: nowrap;
     height: 80px;
-    /*box-sizing: border-box;*/
-    /*width: 700px;*/
 }
 
 .logo {
@@ -136,40 +143,6 @@ h1.funny-title {
 
 /*************** END Logos ***************/
 /*************** NEWS ***************/
-/*.tile{*/
-/*    min-width:100px;*/
-/*    max-width: 400px;*/
-/*    max-height:400px;*/
-/*    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);*/
-/*    border: 1px black solid;*/
-/*}*/
-/*.image_body{*/
-/*    max-height: 300px;*/
-/*    padding: 20px 10px;*/
-/*    position: relative;*/
-/*}*/
-/*.image{*/
-/*    max-width: 100%;*/
-/*    max-height: 100%;*/
-/*    position: absolute;*/
-/*}*/
-/*.date{*/
-/*    height: 10px;*/
-/*    color: lightgrey;*/
-/*    text-align: center;*/
-/*}*/
-/*.headline{*/
-/*    overflow: hidden;*/
-/*    text-overflow: ellipsis;*/
-/*    display: -webkit-box;*/
-/*    -webkit-line-clamp: 2;*/
-/*    line-clamp: 2;*/
-/*    -webkit-box-orient: vertical;*/
-/*    text-align: justify;*/
-/*    padding: 0 5px;*/
-/*}*/
-
-
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 *,
@@ -196,7 +169,6 @@ h1.funny-title {
     flex-direction: column;
     max-width: 400px;
     height: 500px;
-    /*width: clamp(20rem, calc(20rem + 2vw), 22rem);*/
     overflow: hidden;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
     border-radius: 1em;
@@ -258,10 +230,6 @@ a:hover {
     object-fit: cover;
 }
 
-/*.content_preview {*/
-/*    width: 100%;*/
-/*    height: 80vh;*/
-/*}*/
 .file-icon {
     width: 30px;
 }
