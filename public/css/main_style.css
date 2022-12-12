@@ -103,6 +103,7 @@
     text-align: left;
     margin-left: auto;
     display: inline-block;
+    text-shadow: calc(3px + 1 * ((100vw - 320px) / (1280 - 320))) calc(3px + 1 * ((100vw - 320px) / (1280 - 320))) rgba(0, 0, 0, 0.7);
 }
 
 .textBlock2 {
@@ -199,7 +200,7 @@ h1.funny-title {
     display: inline-block;
     height: inherit;
     width: auto;
-    padding: 0 20px 0 20px;
+    margin: 0 20px 0 20px;
 }
 
 /*************** END Logos ***************/
@@ -330,11 +331,14 @@ h1.funny-title {
 
 .card-body h4 {
     clear: left;
-    color: #01b0f8;
+    color: #2e5c4d;
     font-size: calc(30px + 20 * ((100vw - 320px) / (1350 - 320)));
+    font-weight: bold;
 }
 
 .card p {
+    font-weight: bold;
+    color: #00225f;
     width: 100%;
     font-size: calc(15px + 10 * ((100vw - 320px) / (1350 - 320)));
 }
@@ -367,7 +371,7 @@ h1.funny-title {
     border-radius: 50%;
     display: block;
     background: #fff;
-    border: 2px solid #01b0f8;
+    border: 2px solid #2e5c4d;
     margin: 0 5px;
 }
 
@@ -376,7 +380,7 @@ h1.funny-title {
 }
 
 .owl-dots .active span {
-    background: #01b0f8;
+    background: #2e5c4d;
     box-shadow: none;
     height: 12px;
     width: 12px;

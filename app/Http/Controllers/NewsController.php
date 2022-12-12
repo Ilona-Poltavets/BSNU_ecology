@@ -34,8 +34,9 @@ class NewsController extends Controller
 
     public function show($id)
     {
-        $post = News::find($id);
-        return view('news.show', compact('post'));
+        $data['news']=News::orderby('created_at',"desc")->take(5)->get();
+        $data['post'] = News::find($id);
+        return view('news.show',$data);
     }
 
     public function create()

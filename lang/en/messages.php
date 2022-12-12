@@ -14,4 +14,5 @@ return [
     "footer_copyrights"=>"This project has been funded with support from the European Commission. This publication [communication] reflects the views only of the author, and the Commission cannot be held responsible for any use which may be made of the information contained therein",
     "footer_last_news"=>"Latest news",
     "footer_contacts"=>"Contacts",
+    "title"=>"EUROPEAN GREEN DIMENSIONS",
     ];

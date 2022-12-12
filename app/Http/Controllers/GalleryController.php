@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -20,6 +21,7 @@ class GalleryController extends Controller
     }
     public function getGallery()
     {
+        $data['news']=News::orderby('created_at',"desc")->take(5)->get();
         $data['images'] = json_encode(Gallery::orderBy('created_at', 'DESC')->get());
         return view('gallery', $data);
     }

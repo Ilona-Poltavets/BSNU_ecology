@@ -33,6 +33,7 @@ class HomeController extends Controller
         return view('home',$data);
     }
     public function about(){
-        return view('about');
+        $data['news']=News::orderby('created_at',"desc")->take(5)->get();
+        return view('about',$data);
     }
 }

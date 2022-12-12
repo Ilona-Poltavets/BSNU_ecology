@@ -42,12 +42,12 @@
 </div>
 <div style="display:none;" id="myDiv">
     <div class="logos">
-        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
-        <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logo_bsnu1.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
         <div class="container-fluid">
@@ -101,6 +101,36 @@
         @yield('content')
     </div>
 
+    <hr>
+    <div class="footer" style="clear: left">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <b>Copyrigths</b>
+                    <p style="text-align: justify">@lang("messages.footer_copyrights")</p>
+                </div>
+                <div class="col">
+                    <b>@lang("messages.footer_last_news")</b>
+                    <ul class="">
+                        @foreach($news as $post)
+                            <li><a style="text-decoration: none;color:black"
+                                   href="{{route("news.show",$post->id)}}">{{App::isLocale("uk")?$post->titleUkr:$post->titleEng}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="col">
+                    <b>@lang("messages.footer_contacts")</b>
+                    <ul class="list">
+                        <li>@lang("messages.footer_coordinator")</li>
+                        <li><i class="fa-solid fa-phone"></i> +38(095)2880479</li>
+                        <li><i class="fa-solid fa-location-dot"></i>@lang("messages.footer_location")</li>
+                        <li><i class="fa-regular fa-envelope"></i> eco-terra@ukr.net</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="{{asset('js/script.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>

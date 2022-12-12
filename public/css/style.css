@@ -3,6 +3,7 @@
     background: url("../images/background.JPG") no-repeat #ECE7EA;
     background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
+    z-index:9999;
 }
 
 .select_lang {
@@ -11,7 +12,7 @@
 }
 
 .menu .container-fluid .collapse ul li select {
-    color: #cbe065;
+    color: white;
     font-size: 25px;
 }
 
@@ -114,12 +115,14 @@ h1.funny-title {
 }
 
 .custom_table, .custom_table tr, .custom_table td {
+    font-size: 20px;
     font-weight: bold;
     margin: 20px auto 20px auto;
     border: black 1px solid;
 }
 
 .main_text {
+    font-size: 20px;
     text-align: justify;
 }
 
@@ -231,3 +234,7 @@ a:hover {
 /*img {*/
 /*    max-width: 50vw;*/
 /*}*/
+
+.main{
+    min-height: calc(100vh - 70px);
+}

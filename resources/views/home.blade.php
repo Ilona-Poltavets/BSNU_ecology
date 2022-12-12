@@ -55,12 +55,12 @@
 </div>
 <div style="display:none;" id="myDiv">
     <div class="logos">
-        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
-        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
-        <img class="logo" src="{{asset("images/logo_bsnu.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logo_bsnu1.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo4.jpg")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo5.jpg")}}" alt="">
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
         <div class="container-fluid">
@@ -113,7 +113,7 @@
     <div>
         <div class="textBlock">
             <img class="logo-title1 mx-4" src="{{asset("images/ue.jpg")}}" alt=""/>
-            <h2 class="text">European Green Dimensions</h2>
+            <h2 class="text">@lang("messages.title")</h2>
         </div>
         <div class="textBlock2">
             <img class="logo-title2 mx-4" src="{{asset("images/logo.jpg")}}" alt=""/>
@@ -204,7 +204,6 @@
                         <li>@lang("messages.footer_coordinator")</li>
                         <li><i class="fa-solid fa-phone"></i> +38(095)2880479</li>
                         <li><i class="fa-solid fa-location-dot"></i>@lang("messages.footer_location")</li>
-                        <li><i class="fa-regular fa-envelope"></i> lesya.solis28@gmail.com</li>
                         <li><i class="fa-regular fa-envelope"></i> eco-terra@ukr.net</li>
                     </ul>
                 </div>

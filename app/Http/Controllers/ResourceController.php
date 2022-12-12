@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use App\Models\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,6 +22,7 @@ class ResourceController extends Controller
 
     public function getResources($type)
     {
+        $data['news']=News::orderby('created_at',"desc")->take(5)->get();
         $data['files']=Resource::where('type',$type)->orderBy('created_at')->paginate(10);
         return view('resource',$data);
     }
