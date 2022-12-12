@@ -18,10 +18,6 @@ class GalleryController extends Controller
         $data['images'] = Gallery::orderBy('created_at', 'DESC')->paginate(20);
         return view('gallery.index', $data);
     }
-//    public function show(){
-//        $data['images']=Gallery::paginate(9);
-//        return view('gallery',$data);
-//    }
     public function getGallery()
     {
         $data['images'] = json_encode(Gallery::orderBy('created_at', 'DESC')->get());

@@ -87,10 +87,6 @@ class NewsController extends Controller
 
     public function upload(Request $request)
     {
-        //return response()->json_encode($request);
-        //$filename=$request->file->getClientOriginalName();
-        //$path=($request->file)->storeAs("storage/uploads",$filename);
-
         $image = new Gallery();
         $path = ($request->file)->store("storage/uploads");
         $image->path = $path;

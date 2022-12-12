@@ -3,14 +3,6 @@
 @section('content')
     <h1 class="funny-title section-title">@lang("messages.Gallery")</h1>
     <div class="container" id="photos">
-{{--        @foreach($images as $image)--}}
-{{--            <a data-fancybox="images" href="{{$image->path}}">--}}
-{{--                <img class="tile" src="{{$image->path}}" alt="">--}}
-{{--            </a>--}}
-{{--        @endforeach--}}
-{{--        <div style="clear: left">--}}
-{{--            {{$images->links()}}--}}
-{{--        </div>--}}
     </div>
     <div class="row p-4" style="clear: left">
         <div class="col text-center">

@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
           integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <script type="text/javascript" src="{{url('js/carusel.js')}}"></script>
     <script type="text/javascript" src="{{url('js/script.js')}}"></script>
 
     <link rel="stylesheet" href="{{url('js/leaflet/leaflet.css')}}"/>
@@ -211,33 +213,8 @@
         <div id="map" style="width:100%;height: 300px;"></div>
     </div>
 </div>
+<script src="{{asset('js/map.js')}}"></script>
 <script>
-    var map = L.map('map', {
-        center: [46.97164, 32.01590],
-        zoom: 19
-    });
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    L.marker([46.97164, 32.01590]).addTo(map)
-        .bindPopup('Petro Mohyla Black Sea National University')
-        .openPopup();
-</script>
-<script>
-    var myVar;
-
-    function myFunction() {
-        myVar = setTimeout(showPage, 1000);
-    }
-
-    function showPage() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("myDiv").style.display = "block";
-    }
-
     var len = 4;
     var maxLen = 0;
     var array = JSON.parse('<?php echo $images; ?>');

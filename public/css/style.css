@@ -145,14 +145,6 @@ h1.funny-title {
 /*************** NEWS ***************/
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 .card__header img {
     object-fit: cover;
     width: 100%;
@@ -181,7 +173,7 @@ h1.funny-title {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    /*gap: .5rem;*/
 }
 
 .card__body h4 {
@@ -236,6 +228,6 @@ a:hover {
 
 /*************** END Gallery ***************/
 
-img {
-    max-width: 50vw;
-}
+/*img {*/
+/*    max-width: 50vw;*/
+/*}*/

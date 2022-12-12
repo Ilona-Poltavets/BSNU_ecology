@@ -21,17 +21,9 @@ class ResourceController extends Controller
 
     public function getResources($type)
     {
-//        if(!isset($request->type)){
-//            $type='pdf';
-//        }
         $data['files']=Resource::where('type',$type)->orderBy('created_at')->paginate(10);
         return view('resource',$data);
     }
-
-//    public function show($id){
-//        $file=Resource::find($id);
-//        return view('resources.show',compact('file'));
-//    }
 
     public function create()
     {

@@ -102,19 +102,7 @@
     </div>
 
 </div>
-
-<script>
-    var myVar;
-
-    function myFunction() {
-        myVar = setTimeout(showPage, 1000);
-    }
-
-    function showPage() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("myDiv").style.display = "block";
-    }
-</script>
+<script src="{{asset('js/script.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 </body>
 </html>
