@@ -209,10 +209,10 @@
                 </div>
             </div>
         </div>
-        <div id="map" style="width:100%;height: 300px;"></div>
+{{--        <div id="map" style="width:100%;height: 300px;"></div>--}}
     </div>
 </div>
-<script src="{{asset('js/map.js')}}"></script>
+{{--<script src="{{asset('js/map.js')}}"></script>--}}
 <script>
     var len = 4;
     var maxLen = 0;

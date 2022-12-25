@@ -105,13 +105,20 @@ h1.funny-title {
 
 /*************** END Title ***************/
 /*************** Main Content About ***************/
-.poster {
-    float: left;
-    padding: 0 20px 20px 0;
-}
 
-.poster img {
-    max-width: 500px;
+@media (min-width: 600px){
+    .poster {
+        float: left;
+        padding: 0 20px 20px 0;
+    }
+    .poster img {
+        max-width: 500px;
+    }
+}
+@media (max-width: 600px){
+    .poster img {
+        max-width: 100%;
+    }
 }
 
 .custom_table, .custom_table tr, .custom_table td {
