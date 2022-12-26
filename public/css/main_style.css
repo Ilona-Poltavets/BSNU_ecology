@@ -172,7 +172,7 @@ h1.funny-title {
         -moz-animation-play-state: running;
         animation-play-state: running;
         color: transparent;
-        background: url("../images/background.JPG") no-repeat #ECE7EA;
+        background: url("../images/background.jpg") no-repeat #ECE7EA;
         background-size: cover;
         -webkit-text-fill-color: transparent;
         -moz-text-fill-color: transparent;
