@@ -165,14 +165,14 @@
     <div class="container">
         <div class="socials">
             <div class="social youtube">
-                <a href="#" target="_blank"><i class="fa-brands fa-youtube fa-2x"></i></a>
+                <a href="https://www.youtube.com/@olenamitryasova7363" target="_blank"><i class="fa-brands fa-youtube fa-2x"></i></a>
             </div>
             <div class="social instagram">
                 <a href="https://www.instagram.com/europeangreendimensions/" target="_blank"><i
                         class="fa-brands fa-instagram fa-2x"></i></a>
             </div>
             <div class="social facebook">
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                <a href="https://www.facebook.com/groups/2047397135306751" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
             </div>
             <div class="social linkedin">
                 <a href="https://www.linkedin.com/company/88021671/admin/" target="_blank"><i
