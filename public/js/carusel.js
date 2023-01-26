@@ -6,21 +6,6 @@ $(document).ready(function(){
         margin: 0,
         // responsiveClass: true,
         items: 1,
-        nav: true
-        // responsive: {
-        //     0: {
-        //         items: 1,
-        //         nav: true
-        //     },
-        //     680: {
-        //         items: 1,
-        //         nav: true
-        //         // loop: false
-        //     },
-        //     1000: {
-        //         items: 1,
-        //         nav: true
-        //     }
-        // }
+        nav: true,
     });
 });

@@ -41,8 +41,6 @@
                 <tr>
                     <td>Coordinator</td>
                     <td>Professor Olena Mitryasova
-                        +380952880479
-                        eco-terra@ukr.net
                     </td>
                 </tr>
             </table>

@@ -79,19 +79,8 @@
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-2 lang">
-                        <select name="setLocale" class="select_lang nav-link"
-                                onchange="window.location.href=this.options[this.selectedIndex].value;">
-                            <option
-                                value="{{route('setlocale', ['lang' => 'en'])}}" {{(App::isLocale('en') ? 'selected' : '')}}>
-                                English
-                            </option>
-                            <option
-                                value="{{route('setlocale', ['lang' => 'uk'])}}" {{(App::isLocale('uk') ? 'selected' : '')}}>
-                                Українська
-                            </option>
-                        </select>
-                    </li>
+                    <a href="{{route('setlocale',['lang'=>'uk'])}}"><img class="flag {{(App::isLocale('uk') ? 'active' : '')}}" alt="ukraine" src="{{asset('images/langs/uk.png')}}"/></a>
+                    <a href="{{route('setlocale',['lang'=>'en'])}}"><img class="flag {{(App::isLocale('en') ? 'active' : '')}}" alt="english" src="{{asset('images/langs/en.png')}}"/></a>
                 </ul>
             </div>
         </div>

@@ -1,37 +1,48 @@
 /*************** Nav bar ***************/
+body {
+    min-width: 300px;
+}
+
 .menu {
     background: url("../images/background.jpg") no-repeat #ECE7EA;
     background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
-    z-index:9999;
+    z-index:1;
 }
 
-.select_lang {
-    background-color: transparent;
-    border: 0;
+@media (max-width: 990px) {
+    .nav-text {
+        font-size: 30px;
+    }
+
+    .menu {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
 }
 
-.menu .container-fluid .collapse ul li select {
-    color: white;
-    font-size: 25px;
+@media (min-width: 1200px) {
+    .menu .container-fluid .collapse ul li a {
+        margin: 0 calc(10px + 5 * ((100vw - 320px) / (1350 - 320)));
+    }
 }
 
-.select_lang option {
-    color: black;
+@media (min-width: 990px) {
+    .nav-text {
+        font-size: calc(10px + 15 * ((100vw - 320px) / (1350 - 320)));
+    }
+
+    .menu {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 }
 
 .main {
     margin-top: 70px;
 }
 
-.nav-text {
-    font-size: 30px;
-}
-
 .menu .container-fluid .collapse ul li a {
     letter-spacing: 3px;
-    margin: 0 30px;
-    color:white;
+    color: white;
 }
 
 /*************** END Home Page ***************/
@@ -51,71 +62,77 @@ h1.funny-title {
     font-size: 4em;
 }
 
-@media (max-width: 600px) {
-    .section-title {
-        color: #2e5c4d;
-    }
+.section-title {
+    color: #2e5c4d;
 }
 
-@media (min-width: 600px) {
-    @-webkit-keyframes move-background {
-        0% {
-            background-position: -300px 0
-        }
-        100% {
-            background-position: 300px -100px
-        }
-    }
+/*@media (max-width: 600px) {*/
+/*    .section-title {*/
+/*        color: #2e5c4d;*/
+/*    }*/
+/*}*/
 
-    @-moz-keyframes move-background {
-        0% {
-            background-position: -300px 0
-        }
-        100% {
-            background-position: 300px -300px
-        }
-    }
+/*@media (min-width: 600px) {*/
+/*    @-webkit-keyframes move-background {*/
+/*        0% {*/
+/*            background-position: -300px 0*/
+/*        }*/
+/*        100% {*/
+/*            background-position: 300px -100px*/
+/*        }*/
+/*    }*/
 
-    @keyframes move-background {
-        0% {
-            background-position: -300px 0
-        }
-        100% {
-            background-position: 300px -300px
-        }
-    }
-    .section-title {
-        -webkit-animation-play-state: running;
-        -moz-animation-play-state: running;
-        animation-play-state: running;
-        color: transparent;
-        background: url("../images/background.jpg") no-repeat #ECE7EA;
-        background-size: cover;
-        -webkit-text-fill-color: transparent;
-        -moz-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        -webkit-animation: move-background 20s infinite linear alternate;
-        -moz-animation: move-background 20s infinite linear alternate;
-        animation: move-background 20s infinite linear alternate;
-        text-transform: uppercase;
-    }
-}
+/*    @-moz-keyframes move-background {*/
+/*        0% {*/
+/*            background-position: -300px 0*/
+/*        }*/
+/*        100% {*/
+/*            background-position: 300px -300px*/
+/*        }*/
+/*    }*/
+
+/*    @keyframes move-background {*/
+/*        0% {*/
+/*            background-position: -300px 0*/
+/*        }*/
+/*        100% {*/
+/*            background-position: 300px -300px*/
+/*        }*/
+/*    }*/
+/*    .section-title {*/
+/*        -webkit-animation-play-state: running;*/
+/*        -moz-animation-play-state: running;*/
+/*        animation-play-state: running;*/
+/*        color: transparent;*/
+/*        background: url("../images/background.jpg") no-repeat #ECE7EA;*/
+/*        background-size: cover;*/
+/*        -webkit-text-fill-color: transparent;*/
+/*        -moz-text-fill-color: transparent;*/
+/*        -webkit-background-clip: text;*/
+/*        -moz-background-clip: text;*/
+/*        background-clip: text;*/
+/*        -webkit-animation: move-background 20s infinite linear alternate;*/
+/*        -moz-animation: move-background 20s infinite linear alternate;*/
+/*        animation: move-background 20s infinite linear alternate;*/
+/*        text-transform: uppercase;*/
+/*    }*/
+/*}*/
 
 /*************** END Title ***************/
 /*************** Main Content About ***************/
 
-@media (min-width: 600px){
+@media (min-width: 600px) {
     .poster {
         float: left;
         padding: 0 20px 20px 0;
     }
+
     .poster img {
         max-width: 500px;
     }
 }
-@media (max-width: 600px){
+
+@media (max-width: 600px) {
     .poster img {
         max-width: 100%;
     }
@@ -242,6 +259,19 @@ a:hover {
 /*    max-width: 50vw;*/
 /*}*/
 
-.main{
+.main {
     min-height: calc(100vh - 70px);
+}
+
+/*************** Flags ***************/
+.flag {
+    width: 30px;
+    margin: 0 10px;
+    border: 0;
+    border-radius: 5px;
+    opacity: 0.4;
+}
+
+.active {
+    opacity: 1;
 }

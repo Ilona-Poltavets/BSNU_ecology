@@ -64,7 +64,8 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark menu position-absolute top-20">
         <div class="container-fluid">
-            <button class="navbar-toggler menuBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            <button class="navbar-toggler menuBtn" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -92,19 +93,8 @@
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-2 lang">
-                        <select name="setLocale" class="select_lang nav-link"
-                                onchange="window.location.href=this.options[this.selectedIndex].value;">
-                            <option
-                                value="{{route('setlocale', ['lang' => 'en'])}}" {{(App::isLocale('en') ? 'selected' : '')}}>
-                                English
-                            </option>
-                            <option
-                                value="{{route('setlocale', ['lang' => 'uk'])}}" {{(App::isLocale('uk') ? 'selected' : '')}}>
-                                Українська
-                            </option>
-                        </select>
-                    </li>
+                    <a href="{{route('setlocale',['lang'=>'uk'])}}"><img class="flag {{(App::isLocale('uk') ? 'active' : '')}}" alt="ukraine" src="{{asset('images/langs/uk.png')}}"/></a>
+                    <a href="{{route('setlocale',['lang'=>'en'])}}"><img class="flag {{(App::isLocale('en') ? 'active' : '')}}" alt="english" src="{{asset('images/langs/en.png')}}"/></a>
                 </ul>
             </div>
         </div>
@@ -125,22 +115,23 @@
     <h1 class="funny-title section-title" id="team">@lang("messages.Our Team")</h1>
 
     <div class="gtco-testimonials">
-        <div class="owl-carousel owl-carousel1 owl-theme">
+        <div class="owl-carousel owl-carousel1 ">
             @foreach($team as $member)
                 <div class="row">
                     <div class="col-12 mt-3">
                         <div class="card">
                             <div class="card-horizontal">
-                                <div class="img-square-wrapper">
-                                    <img class="card-image" style="float:left" src="{{asset($member->image)}}" alt="">
+                                <div class="img-square-wrapper text-center">
+                                    <img class="cap-img" src="{{asset('images/cap.png')}}" alt="">
+                                    <img class="card-image" src="{{asset($member->image)}}" alt="">
                                 </div>
                                 <div class="card-body text-center">
                                     <h4 class="card-title">{{App::isLocale('en')?$member->nameEng:$member->nameUkr}}</h4>
-                                    <p class="card-text">
-                                        {{App::isLocale('en')?$member->aboutEng:$member->aboutUkr}}
-                                    </p>
                                     <p>
                                         {{App::isLocale('en')?$member->rankEng:$member->rankUkr}}
+                                    </p>
+                                    <p class="card-text">
+                                        {{App::isLocale('en')?$member->aboutEng:$member->aboutUkr}}
                                     </p>
                                 </div>
                             </div>
@@ -165,14 +156,16 @@
     <div class="container">
         <div class="socials">
             <div class="social youtube">
-                <a href="https://www.youtube.com/@olenamitryasova7363" target="_blank"><i class="fa-brands fa-youtube fa-2x"></i></a>
+                <a href="https://www.youtube.com/@olenamitryasova7363" target="_blank"><i
+                        class="fa-brands fa-youtube fa-2x"></i></a>
             </div>
             <div class="social instagram">
                 <a href="https://www.instagram.com/europeangreendimensions/" target="_blank"><i
                         class="fa-brands fa-instagram fa-2x"></i></a>
             </div>
             <div class="social facebook">
-                <a href="https://www.facebook.com/groups/2047397135306751" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                <a href="https://www.facebook.com/groups/2047397135306751" target="_blank"><i
+                        class="fa-brands fa-facebook fa-2x"></i></a>
             </div>
             <div class="social linkedin">
                 <a href="https://www.linkedin.com/company/88021671/admin/" target="_blank"><i
@@ -209,7 +202,7 @@
                 </div>
             </div>
         </div>
-{{--        <div id="map" style="width:100%;height: 300px;"></div>--}}
+        {{--        <div id="map" style="width:100%;height: 300px;"></div>--}}
     </div>
 </div>
 {{--<script src="{{asset('js/map.js')}}"></script>--}}
