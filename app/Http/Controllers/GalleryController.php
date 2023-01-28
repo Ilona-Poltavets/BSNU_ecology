@@ -10,18 +10,21 @@ use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
-    const VALIDATION_RULE=[
-        'files' => 'required',
-        'files.*' => 'image|mimes:jpg,jpeg,png'
+    const VALIDATION_RULE = [
+        'descriptions' => 'max:255',
+        'file' => 'image|mimes:jpg,jpeg,png',
+//        'files.*' => 'image|mimes:jpg,jpeg,png'
     ];
+
     public function index()
     {
         $data['images'] = Gallery::orderBy('created_at', 'DESC')->paginate(20);
         return view('gallery.index', $data);
     }
+
     public function getGallery()
     {
-        $data['news']=News::orderby('created_at',"desc")->take(5)->get();
+        $data['news'] = News::orderby('created_at', "desc")->take(5)->get();
         $data['images'] = json_encode(Gallery::orderBy('created_at', 'DESC')->get());
         return view('gallery', $data);
     }
@@ -43,6 +46,29 @@ class GalleryController extends Controller
         return redirect()->route('photos.index');
     }
 
+    public function edit($id){
+        $image=Gallery::find($id);
+        return view('gallery.edit',compact('image'));
+    }
+
+    public function update(Request $request,$id){
+        $image=Gallery::find($id);
+        $validator = Validator::make($request->all(), self::VALIDATION_RULE);
+        if ($validator->fails()) {
+            return redirect('photos/'.$id.'/edit')
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
+        $rootPath = $image->path;
+        if ($request->file('image') != null) {
+            Storage::delete($rootPath);
+            $image->path = ($request->file)->store("storage/team");
+        }
+        $image->descriptions = $request->descriptions;
+        $image->save();
+        return redirect()->route('photos.index')->with('success', 'Image has been edited successfully');
+    }
+
     public function destroy($id)
     {
         $image = Gallery::find($id);
@@ -53,11 +79,16 @@ class GalleryController extends Controller
 
     function saveData($request)
     {
-        foreach ($request->file('files') as $file) {
-            $path = $file->store('storage/uploads');
-            $image = new Gallery();
-            $image->path = $path;
-            $image->save();
-        }
+        $path = $request->file->store('storage/uploads');
+        $image = new Gallery();
+        $image->path = $path;
+        $image->descriptions = $request->descriptions;
+        $image->save();
+//        foreach ($request->file('files') as $file) {
+//            $path = $file->store('storage/uploads');
+//            $image = new Gallery();
+//            $image->path = $path;
+//            $image->save();
+//        }
     }
 }

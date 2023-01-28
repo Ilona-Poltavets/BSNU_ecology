@@ -7,6 +7,7 @@
         <tr>
             <th>#</th>
             <th>img</th>
+            <th>descriptions</th>
             <th>Created at</th>
             <th></th>
         </tr>
@@ -20,9 +21,12 @@
                         <img class="image-gallery single-images" src="{{$image->path}}" alt="">
                     </a>
                 </td>
+                <td><div class="desc-image">{{$image->descriptions}}</div></td>
                 <td>{{$image->created_at}}</td>
                 <td>
                     <div class="d-grid">
+                        <a href="{{route('photos.edit', $image->id)}}"
+                           class="btn btn-outline-primary">Редагувати</a>
                         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"
                                 data-bs-id="{{$image->id}}">

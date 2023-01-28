@@ -18,7 +18,7 @@
         function getPhotos() {
             var newHTML = [];
             for (var i = 0; i < len; i++) {
-                newHTML.push('<a data-fancybox="images" href="' + array[i].path + '"><img class="tile" src="' + array[i].path + '" alt=""></a>');
+                newHTML.push('<div class="tile"><a data-fancybox="images" href="' + array[i].path + '"><img class="tile-image" src="' + array[i].path + '" alt=""><div class="descriptions">'+(array[i].descriptions == null ? '' : array[i].descriptions)+'</div></a></div>');
             }
             $("#photos").html(newHTML.join(""));
         }

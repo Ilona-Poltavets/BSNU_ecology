@@ -66,58 +66,6 @@ h1.funny-title {
     color: #2e5c4d;
 }
 
-/*@media (max-width: 600px) {*/
-/*    .section-title {*/
-/*        color: #2e5c4d;*/
-/*    }*/
-/*}*/
-
-/*@media (min-width: 600px) {*/
-/*    @-webkit-keyframes move-background {*/
-/*        0% {*/
-/*            background-position: -300px 0*/
-/*        }*/
-/*        100% {*/
-/*            background-position: 300px -100px*/
-/*        }*/
-/*    }*/
-
-/*    @-moz-keyframes move-background {*/
-/*        0% {*/
-/*            background-position: -300px 0*/
-/*        }*/
-/*        100% {*/
-/*            background-position: 300px -300px*/
-/*        }*/
-/*    }*/
-
-/*    @keyframes move-background {*/
-/*        0% {*/
-/*            background-position: -300px 0*/
-/*        }*/
-/*        100% {*/
-/*            background-position: 300px -300px*/
-/*        }*/
-/*    }*/
-/*    .section-title {*/
-/*        -webkit-animation-play-state: running;*/
-/*        -moz-animation-play-state: running;*/
-/*        animation-play-state: running;*/
-/*        color: transparent;*/
-/*        background: url("../images/background.jpg") no-repeat #ECE7EA;*/
-/*        background-size: cover;*/
-/*        -webkit-text-fill-color: transparent;*/
-/*        -moz-text-fill-color: transparent;*/
-/*        -webkit-background-clip: text;*/
-/*        -moz-background-clip: text;*/
-/*        background-clip: text;*/
-/*        -webkit-animation: move-background 20s infinite linear alternate;*/
-/*        -moz-animation: move-background 20s infinite linear alternate;*/
-/*        animation: move-background 20s infinite linear alternate;*/
-/*        text-transform: uppercase;*/
-/*    }*/
-/*}*/
-
 /*************** END Title ***************/
 /*************** Main Content About ***************/
 
@@ -239,12 +187,16 @@ a:hover {
 /*************** END News ***************/
 /*************** Gallery ***************/
 .tile {
+    display:inline-block;
+    position:relative;
+}
+.tile-image {
     width: 300px;
     height: 300px;
     border: 0 black solid;
     border-radius: 10px;
     float: left;
-    display: flex;
+    /*display: flex;*/
     margin: 10px;
     object-fit: cover;
 }
@@ -253,6 +205,24 @@ a:hover {
     width: 30px;
 }
 
+.descriptions{
+    width: 300px;
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    background-color: rgba(0,0,0,.4);
+    border: 0;
+    border-radius: 0 0 10px 10px;
+    padding: 5px 10px 5px 10px;
+    margin:0 10px 0 10px;
+    color: white;
+    word-break: normal;
+    word-wrap: normal;
+    overflow-wrap: normal;
+}
+.tile :hover .descriptions{
+    display: block
+}
 /*************** END Gallery ***************/
 
 /*img {*/

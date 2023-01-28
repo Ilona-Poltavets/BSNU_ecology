@@ -141,7 +141,7 @@ h1.funny-title {
     color: #2e5c4d;
 }
 
-.icon{
+.icon {
     font-size: 50px;
 }
 
@@ -234,36 +234,76 @@ h1.funny-title {
 }
 
 /*************** END Footer ***************/
+.tile {
+    display: inline-block;
+    position: relative;
+}
+
+.tile-image {
+    /*width: 300px;*/
+    height: 300px;
+    border: 0 black solid;
+    border-radius: 10px;
+    float: left;
+    /*display: flex;*/
+    margin: 10px;
+    object-fit: cover;
+}
+
+.file-icon {
+    width: 30px;
+}
+
+.descriptions {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, .4);
+    border: 0;
+    border-radius: 0 0 10px 10px;
+    padding: 5px 10px 5px 10px;
+    margin: 0 10px 0 10px;
+    color: white;
+    word-break: normal;
+    word-wrap: normal;
+    overflow-wrap: normal;
+}
+
+.tile :hover .descriptions {
+    display: block
+}
+
 @media (max-width: 600px) {
-    .tile {
+    .descriptions, .tile-image {
         width: calc(100% - 20px);
     }
 }
 
 @media (min-width: 600px) {
-    .tile {
+    .descriptions, .tile-image {
         width: 300px;
     }
 }
 
-.tile {
-    height: 300px;
-    border: 0 black solid;
-    border-radius: 10px;
-    float: left;
-    display: flex;
-    margin: 10px;
-    object-fit: cover;
-}
+/*.tile {*/
+/*    height: 300px;*/
+/*    border: 0 black solid;*/
+/*    border-radius: 10px;*/
+/*    float: left;*/
+/*    display: flex;*/
+/*    margin: 10px;*/
+/*    object-fit: cover;*/
+/*}*/
 
 /*************** Team ***************/
 @media (min-width: 600px) {
-    .card-image{
+    .card-image {
         margin-left: 120px;
         margin-top: 80px;
         /*margin-right: 60px;*/
         margin-bottom: 80px;
     }
+
     .card-horizontal {
         display: flex;
         flex: 1 1 auto;
@@ -275,7 +315,8 @@ h1.funny-title {
         margin: auto;
         /*padding: 10px;*/
     }
-    .card-image{
+
+    .card-image {
         margin: 45px;
     }
 }
