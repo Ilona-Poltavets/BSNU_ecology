@@ -141,6 +141,10 @@ h1.funny-title {
     color: #2e5c4d;
 }
 
+.icon{
+    font-size: 50px;
+}
+
 /*************** END Title ***************/
 /*************** Logos ***************/
 .logos {
@@ -254,11 +258,12 @@ h1.funny-title {
 
 /*************** Team ***************/
 @media (min-width: 600px) {
-    .cap-img {
-        top: 3px;
-        left: 50px;
+    .card-image{
+        margin-left: 120px;
+        margin-top: 80px;
+        /*margin-right: 60px;*/
+        margin-bottom: 80px;
     }
-
     .card-horizontal {
         display: flex;
         flex: 1 1 auto;
@@ -266,24 +271,13 @@ h1.funny-title {
 }
 
 @media (max-width: 600px) {
-    .cap-img {
-        position: absolute;
-        top: 10px;
-        left: 45%;
-        transform: rotate(20deg) translate(-50%, 0);
-    }
-
     .img-square-wrapper {
         margin: auto;
         /*padding: 10px;*/
     }
-}
-
-.cap-img {
-    position: absolute;
-    display: inline-block !important;
-    height: 100px;
-    width: 100px !important;
+    .card-image{
+        margin: 45px;
+    }
 }
 
 .card-image {
@@ -293,7 +287,6 @@ h1.funny-title {
     max-width: 200px;
     width: 200px !important;
     height: 200px !important;
-    margin: 45px;
     /*margin: calc(20px + 20 * ((100vw - 320px) / (1350 - 320)));*/
     box-shadow: 0 8px 20px -4px #95abbb;
     display: inline-block !important;

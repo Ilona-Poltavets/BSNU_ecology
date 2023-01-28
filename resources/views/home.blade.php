@@ -112,7 +112,8 @@
         <img src="{{asset('images/background.jpg')}}" alt="background" class="mainBackground"/>
     </div>
 
-    <h1 class="funny-title section-title" id="team">@lang("messages.Our Team")</h1>
+    <h1 class="funny-title section-title" id="team"><i class="fa-solid fa-graduation-cap icon"></i> @lang("messages.Our Team") <i class="fa-solid fa-graduation-cap icon"></i></h1>
+    <div class="text-center"></div>
 
     <div class="gtco-testimonials">
         <div class="owl-carousel owl-carousel1 ">
@@ -122,7 +123,6 @@
                         <div class="card">
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper text-center">
-                                    <img class="cap-img" src="{{asset('images/cap.png')}}" alt="">
                                     <img class="card-image" src="{{asset($member->image)}}" alt="">
                                 </div>
                                 <div class="card-body text-center">
@@ -204,7 +204,7 @@
         </div>
         {{--        <div id="map" style="width:100%;height: 300px;"></div>--}}
     </div>
-</div>
+</>
 {{--<script src="{{asset('js/map.js')}}"></script>--}}
 <script>
     var len = 4;
