@@ -21,7 +21,7 @@
     <label for="descriptions" class="col-2 col-form-label">Опис</label>
     <div class="col-10">
         <input name="descriptions" class="form-control @error('descriptions') is-invalid @enderror" type="text"
-               value="{{$image?->descriptions}}" placeholder="Опис">
+               value="{{isset($image)?$image->descriptions:''}}" placeholder="Опис">
         @error('descriptions')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
