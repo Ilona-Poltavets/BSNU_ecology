@@ -42,7 +42,7 @@
 </div>
 <div style="display:none;" id="myDiv">
     <div class="logos">
-        <img class="logo" src="{{asset("images/logos/logo1.png")}}" alt="">
+        <img class="logo" src="{{asset("images/logos/logo1_v2.png")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo2.png")}}" alt="">
         <img class="logo" src="{{asset("images/logo_bsnu1.jpg")}}" alt="">
         <img class="logo" src="{{asset("images/logos/logo3.jpg")}}" alt="">
