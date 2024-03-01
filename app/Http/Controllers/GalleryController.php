@@ -25,9 +25,10 @@ class GalleryController extends Controller
     public function getGallery()
     {
         $data['news'] = News::orderby('created_at', "desc")->take(5)->get();
-        $data['images'] = json_encode(Gallery::orderBy('created_at', 'DESC')->get());
+        $data['images'] = json_encode(Gallery::orderby('created_at', "desc")->take(4)->get());
         return view('gallery', $data);
     }
+
 
     public function create()
     {
@@ -46,16 +47,18 @@ class GalleryController extends Controller
         return redirect()->route('photos.index');
     }
 
-    public function edit($id){
-        $image=Gallery::find($id);
-        return view('gallery.edit',compact('image'));
+    public function edit($id)
+    {
+        $image = Gallery::find($id);
+        return view('gallery.edit', compact('image'));
     }
 
-    public function update(Request $request,$id){
-        $image=Gallery::find($id);
+    public function update(Request $request, $id)
+    {
+        $image = Gallery::find($id);
         $validator = Validator::make($request->all(), self::VALIDATION_RULE);
         if ($validator->fails()) {
-            return redirect('photos/'.$id.'/edit')
+            return redirect('photos/' . $id . '/edit')
                 ->withErrors($validator->errors())
                 ->withInput();
         }
@@ -90,5 +93,11 @@ class GalleryController extends Controller
 //            $image->path = $path;
 //            $image->save();
 //        }
+    }
+
+    function addMore(Request $request)
+    {
+        $images = json_encode(Gallery::orderby('created_at', "desc")->skip($request->skip)->take(4)->get());
+        return response()->json($images);
     }
 }

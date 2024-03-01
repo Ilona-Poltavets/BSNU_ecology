@@ -69,3 +69,5 @@ Route::get('setlocale/{lang}', function ($lang) {
 
     return redirect()->back();
 })->name('setlocale');
+
+Route::get('/get-new-photos', 'App\Http\Controllers\GalleryController@addMore')->name('photos.addMore');

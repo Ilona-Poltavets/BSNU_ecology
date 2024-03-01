@@ -86,16 +86,6 @@ class NewsController extends Controller
         return redirect()->route('news.index');
     }
 
-    public function upload(Request $request)
-    {
-        $image = new Gallery();
-        $path = ($request->file)->store("storage/uploads");
-        $image->path = $path;
-        $image->save();
-
-        return response()->json(array('location' => $path));
-    }
-
     function validateData($request)
     {
         $validator = Validator::make($request->all(), self::VALIDATION_RULE);
@@ -118,5 +108,15 @@ class NewsController extends Controller
         $post->contentUkr = $request->contentUkr;
         $post->contentEng = $request->contentEng;
         $post->save();
+    }
+
+    public function upload(Request $request)
+    {
+        $image = new Gallery();
+        $path = ($request->file)->store("storage/uploads");
+        $image->path = $path;
+        $image->save();
+
+        return response()->json(array('location' => $path));
     }
 }

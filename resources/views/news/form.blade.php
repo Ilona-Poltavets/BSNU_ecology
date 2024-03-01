@@ -1,4 +1,3 @@
-
 <div class="form-group row my-2">
     <label for="title_image" class="col-2 col-form-label">Головна картинка</label>
     <div class="col-10">

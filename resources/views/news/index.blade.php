@@ -9,8 +9,6 @@
             <th>Фото</th>
             <th>Заголовок українською</th>
             <th>Заголовок англійською</th>
-{{--            <th>Контент українською</th>--}}
-{{--            <th>Контент англійською</th>--}}
             <th></th>
         </tr>
         </thead>
@@ -21,12 +19,6 @@
                 <td><img src="{{asset($post->title_image)}}" class="title-image" alt=""></td>
                 <td>{{$post->titleUkr}}</td>
                 <td>{{$post->titleEng}}</td>
-{{--                <td>--}}
-{{--                    <div class="hide_text">{{$post->contentUkr}}</div>--}}
-{{--                </td>--}}
-{{--                <td>--}}
-{{--                    <div class="hide_text">{{$post->contentEng}}</div>--}}
-{{--                </td>--}}
                 <td>
                     <div class="d-grid">
                         <a href="{{route('news.edit', $post->id)}}"
@@ -74,15 +66,10 @@
     <script>
         var exampleModal = document.getElementById('exampleModal')
         exampleModal.addEventListener('show.bs.modal', function (event) {
-            // Button that triggered the modal
             var button = event.relatedTarget
-            // Extract info from data-bs-* attributes
             var name = button.getAttribute('data-bs-name')
             var id = button.getAttribute('data-bs-id')
-            // If necessary, you could initiate an AJAX request here
-            // and then do the updating in a callback.
-            //
-            // Update the modal's content.
+
             var modalTitle = exampleModal.querySelector('.modal-title')
             var modalBodyInput = exampleModal.querySelector('.modal-body b')
             var modalForm=exampleModal.querySelector('#form_delete')

@@ -93,8 +93,12 @@
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
-                    <a href="{{route('setlocale',['lang'=>'uk'])}}"><img class="flag {{(App::isLocale('uk') ? 'active' : '')}}" alt="ukraine" src="{{asset('images/langs/uk.png')}}"/></a>
-                    <a href="{{route('setlocale',['lang'=>'en'])}}"><img class="flag {{(App::isLocale('en') ? 'active' : '')}}" alt="english" src="{{asset('images/langs/en.png')}}"/></a>
+                    <a href="{{route('setlocale',['lang'=>'uk'])}}"><img
+                            class="flag {{(App::isLocale('uk') ? 'active' : '')}}" alt="ukraine"
+                            src="{{asset('images/langs/uk.png')}}"/></a>
+                    <a href="{{route('setlocale',['lang'=>'en'])}}"><img
+                            class="flag {{(App::isLocale('en') ? 'active' : '')}}" alt="english"
+                            src="{{asset('images/langs/en.png')}}"/></a>
                 </ul>
             </div>
         </div>
@@ -112,7 +116,9 @@
         <img src="{{asset('images/background.jpg')}}" alt="background" class="mainBackground"/>
     </div>
 
-    <h1 class="funny-title section-title" id="team"><i class="fa-solid fa-graduation-cap icon"></i> @lang("messages.Our Team") <i class="fa-solid fa-graduation-cap icon"></i></h1>
+    <h1 class="funny-title section-title" id="team"><i
+            class="fa-solid fa-graduation-cap icon"></i> @lang("messages.Our Team") <i
+            class="fa-solid fa-graduation-cap icon"></i></h1>
     <div class="text-center"></div>
 
     <div class="gtco-testimonials">
@@ -202,34 +208,44 @@
                 </div>
             </div>
         </div>
-        {{--        <div id="map" style="width:100%;height: 300px;"></div>--}}
     </div>
-</>
-{{--<script src="{{asset('js/map.js')}}"></script>--}}
+</div>
 <script>
     var len = 4;
     var maxLen = 0;
     var array = JSON.parse('<?php echo $images; ?>');
-    maxLen = array.length - 4;
 
-    function getPhotos() {
-        var newHTML = [];
-        for (var i = 0; i < len; i++) {
-            newHTML.push('<div class="tile"><a data-fancybox="images" href="' + array[i].path + '"><img class="tile-image" src="' + array[i].path + '" alt=""><div class="descriptions">'+(array[i].descriptions == null ? '' : array[i].descriptions)+'</div></a></div>');
+    function getPhotos(arr) {
+        if (arr.length !== 0) {
+            for (var i = 0; i < 4; i++) {
+                $("#photos").append('<div class="tile"><a data-fancybox="images" href="' + arr[i].path + '"><img class="tile-image" src="' + arr[i].path + '" alt=""><div class="descriptions">' + (arr[i].descriptions == null ? '' : arr[i].descriptions) + '</div></a></div>');
+            }
         }
-        $("#photos").html(newHTML.join(""));
     }
 
-    getPhotos();
+    getPhotos(array);
     $('#viewmore').on('click', function () {
-        if (maxLen - 4 < 0) {
-            len = array.length;
-            this.hidden = true;
-        } else {
-            len += 4;
-            maxLen -= 4;
-        }
-        getPhotos();
+        var newArr = [];
+        $.ajax({
+            url: '/get-new-photos',
+            method: 'GET',
+            data: {
+                "_token": $('meta[name="csrf-token"]').attr('content'),
+                skip: len,
+            },
+            success: function (response) {
+                newArr = JSON.parse(response);
+                if (newArr.length !== 0) {
+                    len += 4;
+                    getPhotos(newArr);
+                } else {
+                    $('#viewmore').remove();
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+            }
+        });
     })
 </script>
 </body>
